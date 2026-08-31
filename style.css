@@ -253,8 +253,7 @@ footer .sep{margin:0 9px; opacity:.5}
   padding:7px 15px; border-radius:999px; font-weight:600;
 }
 .barre .contact:hover{color:var(--encre); opacity:.9}
-@media(max-width:900px){ .barre .masq{display:none} }
-@media(max-width:560px){ .barre .masq2{display:none} }
+
 
 /* Heros en deux colonnes */
 .hero{padding-top:clamp(30px,4vw,52px); padding-bottom:clamp(48px,6vw,72px)}
@@ -311,3 +310,36 @@ footer{line-height:1.7}
 @media(min-width:1120px){ .hero .actions{flex-wrap:nowrap} }
 
 .encart p+p{margin-top:12px}
+
+/* Menu mobile complet */
+.burger{
+  display:none; width:44px; height:44px; border:none; background:none;
+  color:var(--encre); cursor:pointer; align-items:center; justify-content:center;
+  border-radius:10px;
+}
+.burger svg{width:22px; height:22px}
+.burger:hover{background:rgba(30,27,38,.06)}
+@media(max-width:860px){
+  .burger{display:inline-flex; order:2}
+  .barre-in{position:relative}
+  .barre nav{
+    display:none; position:absolute; top:52px; right:0; left:0;
+    flex-direction:column; align-items:stretch; gap:0;
+    background:var(--ivoire); border-bottom:1px solid var(--trait);
+    padding:8px 22px 18px;
+  }
+  .barre.ouvert nav{display:flex}
+  .barre nav a{padding:14px 4px; font-size:16px; border-bottom:1px solid var(--trait)}
+  .barre nav a:last-child{border-bottom:none}
+  .barre .contact{
+    margin-top:12px; text-align:center; border-radius:999px; padding:13px 20px;
+  }
+}
+.statut{
+  font-size:13px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 14px;
+}
+
+/* Liens sur fond encre: l'accent clair est requis pour le contraste (6,38 mesure) */
+.bande.encre a{color:#FF7551}
+footer a{color:var(--clair-faible)}
