@@ -19,6 +19,23 @@ document.addEventListener('DOMContentLoaded', function(){
     cibles.forEach(function(el){ obs.observe(el); });
   }
 
+  var burger = document.querySelector('.burger');
+  var barre = document.querySelector('.barre');
+  if(burger && barre){
+    burger.addEventListener('click', function(){
+      var ouvert = barre.classList.toggle('ouvert');
+      burger.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
+      burger.setAttribute('aria-label', ouvert ? 'Fermer le menu' : 'Ouvrir le menu');
+    });
+    barre.querySelectorAll('nav a').forEach(function(lien){
+      lien.addEventListener('click', function(){
+        barre.classList.remove('ouvert');
+        burger.setAttribute('aria-expanded','false');
+        burger.setAttribute('aria-label','Ouvrir le menu');
+      });
+    });
+  }
+
   document.querySelectorAll('.galerie').forEach(function(galerie){
     var piste = galerie.querySelector('.piste');
     var prec = galerie.querySelector('.fleche.prec');
