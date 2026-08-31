@@ -304,10 +304,16 @@ footer{line-height:1.7}
 .bande.suite{padding-top:clamp(24px,3vw,40px)}
 .bande.courte.entete-page{padding-bottom:clamp(14px,2vw,24px)}
 
-/* Trois actions dans le heros, alignees sur une ligne des que la place le permet */
+/* Deux actions dans le heros, alignees sur une ligne des que la place le permet */
 .hero .actions{gap:10px}
 .hero .actions .bouton{padding:12px 19px; font-size:15px; white-space:nowrap}
 @media(min-width:1120px){ .hero .actions{flex-wrap:nowrap} }
+
+/* Lien texte secondaire, sous la rangee de boutons */
+.lien-suite{margin-top:16px; font-size:15px}
+.lien-suite a{color:var(--accent); font-weight:500; text-decoration:underline; text-underline-offset:3px}
+.lien-suite a:hover{text-decoration-thickness:2px}
+@media(max-width:900px){ .lien-suite{text-align:center} }
 
 .encart p+p{margin-top:12px}
 

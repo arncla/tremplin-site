@@ -34,6 +34,14 @@ document.addEventListener('DOMContentLoaded', function(){
         burger.setAttribute('aria-label','Ouvrir le menu');
       });
     });
+    document.addEventListener('keydown', function(e){
+      if((e.key === 'Escape' || e.key === 'Esc') && barre.classList.contains('ouvert')){
+        barre.classList.remove('ouvert');
+        burger.setAttribute('aria-expanded','false');
+        burger.setAttribute('aria-label','Ouvrir le menu');
+        burger.focus();
+      }
+    });
   }
 
   document.querySelectorAll('.galerie').forEach(function(galerie){
