@@ -67,6 +67,16 @@ document.addEventListener('DOMContentLoaded', function(){
     suiv.addEventListener('click', function(){
       piste.scrollBy({ left: pas(), behavior: doux ? 'auto' : 'smooth' });
     });
+    piste.addEventListener('keydown', function(e){
+      if(e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      var max = piste.scrollWidth - piste.clientWidth;
+      if(max <= 2) return;
+      var delta = e.key === 'ArrowRight' ? pas() : -pas();
+      var cible = Math.max(0, Math.min(max, piste.scrollLeft + delta));
+      if(Math.abs(cible - piste.scrollLeft) < 1) return;
+      e.preventDefault();
+      piste.scrollBy({ left: delta, behavior: doux ? 'auto' : 'smooth' });
+    });
     piste.addEventListener('scroll', etat, { passive: true });
     window.addEventListener('resize', etat);
     etat();

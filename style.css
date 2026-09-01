@@ -309,6 +309,22 @@ footer{line-height:1.7}
 .hero .actions .bouton{padding:12px 19px; font-size:15px; white-space:nowrap}
 @media(min-width:1120px){ .hero .actions{flex-wrap:nowrap} }
 
+/* Sous 400px, les boutons passent avant les puces pour rester visibles sans defiler */
+@media(max-width:640px){
+  .hero .actions .bouton{white-space:normal}
+}
+@media(max-width:400px){
+  .hero-grille > div:first-child{display:flex; flex-direction:column}
+  .hero-grille > div:first-child > .hero-marque{order:1}
+  .hero-grille > div:first-child > .statut{order:2}
+  .hero-grille > div:first-child > h1{order:3}
+  .hero-grille > div:first-child > .sous{order:4}
+  .hero-grille > div:first-child > .actions{order:5; margin-top:22px}
+  .hero-grille > div:first-child > .lien-suite{order:6}
+  .hero-grille > div:first-child > .points{order:7; margin-top:26px}
+  .hero-grille > div:first-child > .fin{order:8}
+}
+
 /* Lien texte secondaire, sous la rangee de boutons */
 .lien-suite{margin-top:16px; font-size:15px}
 .lien-suite a{color:var(--accent); font-weight:500; text-decoration:underline; text-underline-offset:3px}
@@ -326,20 +342,32 @@ footer{line-height:1.7}
 .burger svg{width:22px; height:22px}
 .burger:hover{background:rgba(30,27,38,.06)}
 @media(max-width:860px){
-  .burger{display:inline-flex; order:2}
+  .js .burger{display:inline-flex; order:2}
   .barre-in{position:relative}
-  .barre nav{
+  .js .barre nav{
     display:none; position:absolute; top:52px; right:0; left:0;
     flex-direction:column; align-items:stretch; gap:0;
     background:var(--ivoire); border-bottom:1px solid var(--trait);
     padding:8px 22px 18px;
   }
-  .barre.ouvert nav{display:flex}
+  .js .barre.ouvert nav{display:flex}
   .barre nav a{padding:14px 4px; font-size:16px; border-bottom:1px solid var(--trait)}
   .barre nav a:last-child{border-bottom:none}
   .barre .contact{
     margin-top:12px; text-align:center; border-radius:999px; padding:13px 20px;
   }
+  /* Sans JavaScript: pas de burger, les liens restent visibles sous la barre */
+  html:not(.js) .barre{position:static}
+  html:not(.js) .barre-in{
+    height:auto; min-height:52px; flex-wrap:wrap;
+    padding-top:6px; padding-bottom:10px;
+  }
+  html:not(.js) .barre nav{
+    flex-basis:100%; flex-direction:column; align-items:stretch; gap:0;
+    border-top:1px solid var(--trait); margin-top:6px;
+  }
+  html:not(.js) .barre nav a{padding:11px 4px; font-size:15px}
+  html:not(.js) .barre .contact{margin-top:10px; padding:11px 20px}
 }
 .statut{
   font-size:13px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
@@ -349,3 +377,20 @@ footer{line-height:1.7}
 /* Liens sur fond encre: l'accent clair est requis pour le contraste (6,38 mesure) */
 .bande.encre a{color:#FF7551}
 footer a{color:var(--clair-faible)}
+
+/* Sommaire local, page L'application */
+.sommaire-page{
+  display:flex; gap:8px; margin-top:26px;
+  overflow-x:auto; overscroll-behavior-x:contain;
+  padding-bottom:4px;
+}
+.sommaire-page a{
+  display:inline-flex; align-items:center; flex:0 0 auto;
+  min-height:44px; padding:0 15px;
+  border:1px solid var(--trait); border-radius:999px;
+  color:var(--texte); text-decoration:none;
+  font-size:14px; font-weight:500; white-space:nowrap;
+}
+.sommaire-page a:hover{border-color:var(--corail); color:var(--accent)}
+section[tabindex="-1"]:focus{outline:none}
+section[tabindex="-1"]:focus-visible{outline:2px solid var(--accent); outline-offset:-4px}

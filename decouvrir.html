@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#FBF6EE">
 <title>L'application Tremplin</title>
 <meta name="description" content="Les cinq espaces de Tremplin en images: la journée, les guides, l'argent, le moral et le travail.">
 <link rel="canonical" href="https://tremplinapp.ch/decouvrir">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="L'application Tremplin">
 <meta property="og:description" content="Les cinq espaces de Tremplin en images.">
 <meta property="og:url" content="https://tremplinapp.ch/decouvrir">
@@ -22,7 +23,7 @@
 <meta name="twitter:image" content="https://tremplinapp.ch/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Fraunces:opsz,wght@9..144,600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script src="site.js" defer></script>
 </head>
@@ -45,7 +46,7 @@
       <nav id="menu-principal" aria-label="Navigation principale">
       <a href="/decouvrir" aria-current="page">L'application</a>
       <a href="/#pour-qui">Pour qui</a>
-      <a href="/#guides">Les guides</a>
+      <a href="#guides">Les guides</a>
       <a href="/#questions">Questions</a>
       <a href="/a-propos">À propos</a>
       <a class="contact" href="mailto:tremplinapp@pm.me">Écrire</a>
@@ -59,10 +60,21 @@
   <div class="centre">
     <h1 class="anim" style="font-size:clamp(40px,7.5vw,84px)">L'application</h1>
     <p class="sous anim d1">Cinq espaces pour retrouver rapidement une information ou un outil.</p>
+    <nav class="sommaire-page anim d2" aria-label="Sommaire de la page">
+      <a href="#journee">Ta journée</a>
+      <a href="#guides">Les guides</a>
+      <a href="#etapes">Étape par étape</a>
+      <a href="#argent">L'argent</a>
+      <a href="#moral">Le moral</a>
+      <a href="#travail">Le travail</a>
+      <a href="#aide">Quand ça ne va pas</a>
+      <a href="#compte">Aucun compte nécessaire</a>
+      <a href="#details">En détail</a>
+    </nav>
   </div>
 </section>
 
-<section class="bande blanche suite">
+<section class="bande blanche suite" id="journee" tabindex="-1">
   <div class="centre">
     <h2 class="anim">Ta journée</h2>
     <p class="sous anim d1">En ouvrant l'application, tu tombes sur ta journée: comment tu te sens, ce qu'il y a à faire, la prochaine échéance.</p>
@@ -89,7 +101,7 @@
   </div>
 </section>
 
-<section class="bande">
+<section class="bande" id="guides" tabindex="-1">
   <div class="centre">
     <h2 class="anim">Les guides</h2>
     <p class="sous anim d1">Assurance maladie, bail, contrat de travail, impôts, chômage, arnaques en ligne, dettes. Dix-sept guides écrits pour la Suisse romande, avec la date de leur dernière vérification.</p>
@@ -124,7 +136,7 @@
   </div>
 </section>
 
-<section class="bande blanche">
+<section class="bande blanche" id="etapes" tabindex="-1">
   <div class="centre">
     <h2 class="anim">Étape par étape</h2>
     <p class="sous anim d1">Trouver un premier appartement, c'est une suite de démarches dans un ordre précis. Ce qui est fait reste coché, tu peux t'arrêter et reprendre plus tard.</p>
@@ -163,7 +175,7 @@
   </div>
 </section>
 
-<section class="bande">
+<section class="bande" id="argent" tabindex="-1">
   <div class="centre">
     <h2 class="anim">L'argent</h2>
     <p class="sous anim d1">Aucune connexion bancaire. Tu saisis ce qui rentre et ce qui sort, l'application montre ce qu'il te reste et où l'argent part vraiment.</p>
@@ -190,7 +202,7 @@
   </div>
 </section>
 
-<section class="bande blanche">
+<section class="bande blanche" id="moral" tabindex="-1">
   <div class="centre">
     <h2 class="anim">Le moral</h2>
     <p class="sous anim d1">Noter comment tu vas en un geste. Quatre exercices courts qui fonctionnent sans connexion. Et un petit jeu, pour décrocher cinq minutes.</p>
@@ -221,7 +233,7 @@
   </div>
 </section>
 
-<section class="bande">
+<section class="bande" id="travail" tabindex="-1">
   <div class="centre">
     <h2 class="anim">Le travail</h2>
     <p class="sous anim d1">Un carnet de bord, une aide à la candidature, un calculateur qui traduit ton brut en net avec le détail des déductions, tes contacts et des questions d'entretien.</p>
@@ -260,7 +272,7 @@
   </div>
 </section>
 
-<section class="bande encre">
+<section class="bande encre" id="aide" tabindex="-1">
   <div class="centre">
     <h2 class="anim">Quand ça ne va pas</h2>
     <p class="sous anim d1">Un bouton d'urgence sur chaque écran, qui ouvre les numéros d'aide sans détour. L'application contient aussi un espace santé mentale et un module de réduction des risques, relus par des organismes spécialisés.</p>
@@ -274,7 +286,7 @@
   </div>
 </section>
 
-<section class="bande">
+<section class="bande" id="compte" tabindex="-1">
   <div class="centre">
     <h2 class="anim">Aucun compte nécessaire</h2>
     <p class="sous anim d1">Pas de compte, pas d'adresse e-mail, pas de numéro. Au premier lancement, tu choisis ton canton. Aucun nom, numéro ou adresse n'est demandé, et tu peux tout effacer quand tu veux.</p>
@@ -313,14 +325,14 @@
   </div>
 </section>
 
-<section class="bande blanche">
+<section class="bande blanche" id="details" tabindex="-1">
   <div class="centre">
     <h2 class="anim">En détail</h2>
     <p class="sous anim d1">Ce qu'il faut savoir avant de l'installer.</p>
     <dl class="fiche">
       <div class="anim"><dt>Plateformes</dt><dd>iPhone à partir d'iOS 17. Version Android native en développement, à partir d'Android 8.</dd></div>
       <div class="anim"><dt>Langue</dt><dd>Français uniquement.</dd></div>
-      <div class="anim"><dt>Couverture</dt><dd>Les six cantons romands: Vaud, Genève, Valais, Fribourg, Neuchâtel, Jura.</dd></div>
+      <div class="anim"><dt>Couverture</dt><dd>Six cantons: Vaud, Genève, Valais, Fribourg, Neuchâtel et Jura. Le Jura bernois n'est pas encore couvert.</dd></div>
       <div class="anim"><dt>Connexion</dt><dd>Facultative. Les contenus et les outils fonctionnent hors ligne.</dd></div>
       <div class="anim"><dt>Compte</dt><dd>Aucun. Ni adresse e-mail, ni numéro de téléphone, ni mot de passe.</dd></div>
       <div class="anim"><dt>Données</dt><dd>Stockées sur l'appareil. Aucune donnée n'est envoyée automatiquement à Tremplin. Sur iPhone, synchronisation possible via le compte iCloud personnel. Suppression totale disponible dans les réglages.</dd></div>
