@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="theme-color" content="#FBF6EE">
 <title>Confidentialité, Tremplin</title>
 <meta name="description" content="Tremplin n'envoie aucune donnée au développeur. Ce que l'application enregistre, où, et ce qu'elle ne fait pas, sur iPhone comme sur Android.">
@@ -22,9 +23,6 @@
 <meta property="og:image:alt" content="Tremplin, tout ce qu'on ne t'a jamais expliqué">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tremplinapp.ch/og.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Fraunces:opsz,wght@9..144,600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script src="site.js" defer></script>
 <style>
@@ -91,6 +89,14 @@
     <h2 class="anim">Autorisations utilisées</h2>
     <p class="corps anim">Sur iPhone: les notifications, pour les rappels d'échéances et de tâches, optionnels; les contacts, pour l'import optionnel de contacts que tu choisis; Face ID ou le code, pour le verrouillage optionnel de l'application, traité par iOS.</p>
     <p class="corps anim">Sur Android: les notifications, demandées au moment où tu actives les rappels; les contacts, demandés au moment de l'import et seulement là; le redémarrage de l'appareil, pour reposer tes rappels après un redémarrage. Le verrouillage de l'application s'appuie sur le déverrouillage de ton téléphone, géré par Android. Rien de tout cela ne quitte ton appareil.</p>
+
+    <h2 class="anim">Ce site web</h2>
+    <p class="corps anim">Les sections ci-dessus décrivent l'application. Celle-ci décrit le site que tu es en train de lire.</p>
+    <p class="corps anim">C'est un site statique: pas de compte, pas de formulaire, pas de cookie, pas d'outil de mesure d'audience, pas de publicité. Les seuls liens sortants vont vers <a href="https://www.linkedin.com/in/arnaud-clavien-9b1a82428/" target="_blank" rel="noopener">LinkedIn</a>, <a href="https://grainedeculture.ch" target="_blank" rel="noopener">Graine de Culture</a> et la source statistique de l'OFS. Ils ne s'ouvrent que si tu cliques dessus.</p>
+    <p class="corps anim">Le site est hébergé par GitHub Pages, un service de GitHub, Inc. Comme tout hébergeur, GitHub reçoit l'adresse IP de ton appareil et la page demandée, sans quoi il ne pourrait pas te la servir. Il peut conserver ces journaux techniques selon sa propre politique, décrite dans sa <a href="https://docs.github.com/fr/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">déclaration de confidentialité</a>. Nous ne maîtrisons ni ces journaux ni leur durée de conservation.</p>
+    <p class="corps anim">Les polices du site sont servies depuis le site lui-même. Aucune ressource n'est chargée depuis un autre domaine: ni police, ni script, ni image, ni outil de mesure.</p>
+    <p class="corps anim">Responsable de ce site et contact: Arnaud Clavien, <a href="mailto:tremplinapp@pm.me">tremplinapp@pm.me</a>.</p>
+    <p class="fin anim">Section mise à jour le 1er septembre 2026.</p>
 
     <h2 class="anim">Contact</h2>
     <p class="corps anim"><a href="mailto:tremplinapp@pm.me">tremplinapp@pm.me</a></p>
