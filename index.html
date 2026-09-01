@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#FBF6EE">
 <title>Tremplin | L'app qui accompagne les 15 à 25 ans en Suisse romande</title>
-<meta name="description" content="Application gratuite pour les 15 à 25 ans en Suisse romande. Les démarches, l'argent, le travail, le moral. Sans publicité, sans compte, sans collecte de données.">
+<meta name="description" content="Application gratuite pour les 15 à 25 ans en Suisse romande. Les démarches, l'argent, le travail, le moral. Sans publicité, sans compte, aucune donnée envoyée automatiquement.">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -30,7 +31,7 @@
     "priceCurrency": "CHF"
    },
    "url": "https://tremplinapp.ch/",
-   "description": "Application gratuite pour les 15 à 25 ans en Suisse romande: guides pratiques, budget, travail et bien-être. Sans publicité, sans compte, sans collecte de données.",
+   "description": "Application gratuite pour les 15 à 25 ans en Suisse romande: guides pratiques, budget, travail et bien-être. Sans publicité, sans compte, aucune donnée envoyée automatiquement.",
    "author": {
     "@type": "Person",
     "name": "Arnaud Clavien",
@@ -50,7 +51,7 @@
    "name": "Est-ce vraiment gratuit?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Oui. Aucun achat, aucun abonnement, aucun contenu réservé, aucune publicité. Tremplin est développée bénévolement et ne vend rien, ni maintenant ni plus tard."
+    "text": "Oui. Aucun achat, aucun abonnement, aucun contenu réservé, aucune publicité. Tremplin est développée bénévolement et ne comprend ni achat, ni abonnement, ni publicité."
    }
   },
   {
@@ -58,7 +59,7 @@
    "name": "Qui écrit les contenus?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Un éducateur social qui accompagne ces jeunes au quotidien. Chaque information factuelle est ensuite contrôlée contre sa source officielle: administrations cantonales, offices fédéraux, organismes spécialisés. Les contenus les plus sensibles, santé mentale et réduction des risques, sont relus par des organismes spécialisés avant d'être publiés."
+    "text": "Un éducateur social qui accompagne ces jeunes au quotidien. Chaque information factuelle est ensuite vérifiée à partir d'une source officielle, administrations cantonales, offices fédéraux ou organismes spécialisés, et chaque guide affiche la date de sa dernière vérification. Les contenus les plus sensibles, santé mentale et réduction des risques, ont été relus par des organismes spécialisés de Suisse romande avant publication. Leurs noms seront indiqués avec leur accord."
    }
   },
   {
@@ -74,7 +75,15 @@
    "name": "Faut-il une connexion internet?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Non. Les guides, le budget et les exercices fonctionnent hors connexion, puisque tout est stocké sur l'appareil. Une connexion ne sert qu'à ouvrir un lien externe ou passer un appel."
+    "text": "Non. Les guides, le budget et les exercices fonctionnent sans Internet, puisque tout est stocké sur l'appareil. Une connexion Internet ne sert qu'à ouvrir un lien externe. Pour appeler un numéro d'aide, il faut seulement un accès au réseau téléphonique, pas de données mobiles."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Quels cantons sont couverts?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Vaud, Genève, Valais, Fribourg, Neuchâtel et Jura, avec leurs délais et leurs adresses. Le Jura bernois n'est pas encore couvert. Si tu es ailleurs, les guides restent utiles pour tout ce qui relève du droit fédéral."
    }
   },
   {
@@ -121,7 +130,7 @@
 <meta name="twitter:image" content="https://tremplinapp.ch/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Fraunces:opsz,wght@9..144,600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script src="site.js" defer></script>
 <style>
@@ -175,8 +184,8 @@
         <li>Aucune donnée n'est envoyée automatiquement à Tremplin</li>
       </ul>
       <div class="actions anim d3">
-        <a class="bouton" href="/decouvrir">Voir l'application</a>
-        <a class="bouton creux" href="#institutions">Pour les institutions</a>
+        <a class="bouton" href="#institutions">Tester Tremplin dans votre structure</a>
+        <a class="bouton creux" href="/decouvrir">Voir l'application</a>
       </div>
       <p class="lien-suite anim d3"><a href="/a-propos">Pourquoi Tremplin</a></p>
       <p class="fin anim d3">Gratuite, sans publicité, sans compte. Pour les 15 à 25 ans. Pas encore téléchargeable publiquement.</p>
@@ -205,7 +214,7 @@
       </figure>
       <figure class="vue zoom d2">
         <div class="tel"><img src="captures/ios-argent.jpg" alt="Budget du mois: revenus, sorties, solde disponible et répartition des dépenses" loading="lazy" width="600" height="1304"></div>
-        <figcaption><b>Argent</b>Ce qui rentre, ce qui sort, ce qu'il te reste vraiment.</figcaption>
+        <figcaption><b>Argent</b>Tes revenus, tes dépenses et le solde du mois.</figcaption>
       </figure>
       <figure class="vue zoom d3">
         <div class="tel"><img src="captures/ios-bienetre-haut.jpg" alt="Bien-être: humeur du jour et quatre exercices guidés de deux à trois minutes" loading="lazy" width="600" height="1304"></div>
@@ -282,8 +291,8 @@
 
 <section class="bande blanche">
   <div class="centre">
-    <h2 class="anim">L'aide, à un geste</h2>
-    <p class="sous anim d1">Un bouton reste visible sur chaque écran. Il ouvre les numéros d'urgence et les lignes d'écoute, tout de suite, sans rien avoir à expliquer.</p>
+    <h2 class="anim">Les numéros d'aide, accessibles tout de suite</h2>
+    <p class="sous anim d1">Un bouton reste visible sur chaque écran. Il ouvre les numéros d'urgence et les lignes d'écoute, sans avoir à les chercher.</p>
     <div class="texte">
       <div class="encart anim d2">
         <h3>Si ça ne va pas, maintenant</h3>
@@ -329,13 +338,13 @@
     <div class="faq">
       <details class="anim">
         <summary>Est-ce vraiment gratuit?</summary>
-        <div class="rep"><p>Oui. Aucun achat, aucun abonnement, aucun contenu réservé, aucune publicité. Tremplin est développée bénévolement et ne vend rien, ni maintenant ni plus tard.</p></div>
+        <div class="rep"><p>Oui. Aucun achat, aucun abonnement, aucun contenu réservé, aucune publicité. Tremplin est développée bénévolement et ne comprend ni achat, ni abonnement, ni publicité.</p></div>
       </details>
       <details class="anim">
         <summary>Qui écrit les contenus?</summary>
         <div class="rep">
-          <p>Un éducateur social qui accompagne ces jeunes au quotidien. Chaque information factuelle est ensuite contrôlée contre sa source officielle: administrations cantonales, offices fédéraux, organismes spécialisés.</p>
-          <p>Les contenus les plus sensibles, santé mentale et réduction des risques, sont relus par des organismes spécialisés avant d'être publiés.</p>
+          <p>Un éducateur social qui accompagne ces jeunes au quotidien. Chaque information factuelle est ensuite vérifiée à partir d'une source officielle, administrations cantonales, offices fédéraux ou organismes spécialisés, et chaque guide affiche la date de sa dernière vérification.</p>
+          <p>Les contenus les plus sensibles, santé mentale et réduction des risques, ont été relus par des organismes spécialisés de Suisse romande avant publication. Leurs noms seront indiqués avec leur accord.</p>
         </div>
       </details>
       <details class="anim">
@@ -347,7 +356,11 @@
       </details>
       <details class="anim">
         <summary>Faut-il une connexion internet?</summary>
-        <div class="rep"><p>Non. Les guides, le budget et les exercices fonctionnent hors connexion, puisque tout est stocké sur l'appareil. Une connexion ne sert qu'à ouvrir un lien externe ou passer un appel.</p></div>
+        <div class="rep"><p>Non. Les guides, le budget et les exercices fonctionnent sans Internet, puisque tout est stocké sur l'appareil. Une connexion Internet ne sert qu'à ouvrir un lien externe. Pour appeler un numéro d'aide, il faut seulement un accès au réseau téléphonique, pas de données mobiles.</p></div>
+      </details>
+      <details class="anim">
+        <summary>Quels cantons sont couverts?</summary>
+        <div class="rep"><p>Vaud, Genève, Valais, Fribourg, Neuchâtel et Jura, avec leurs délais et leurs adresses. Le Jura bernois n'est pas encore couvert. Si tu es ailleurs, les guides restent utiles pour tout ce qui relève du droit fédéral.</p></div>
       </details>
       <details class="anim">
         <summary>Est-ce que ça remplace un professionnel?</summary>
