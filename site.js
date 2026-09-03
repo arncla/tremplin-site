@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function(){
   // Les captures ne basculent qu'au moment ou le sombre est demande : un visiteur
   // qui reste en clair ne telecharge jamais la seconde serie. Une capture sans
   // jumelle, ios-guide-quiz, garde sa version claire sans rien casser.
-  function basculerCaptures(sombre){
-    document.querySelectorAll('img[data-sombre]').forEach(function(img){
+  function basculerCaptures(sombre, racineDom){
+    (racineDom || document).querySelectorAll('img[data-sombre]').forEach(function(img){
       if(sombre){
         if(!img.dataset.clair) img.dataset.clair = img.getAttribute('src');
         img.setAttribute('src', img.dataset.sombre);
@@ -57,12 +57,43 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     var couleur = document.querySelector('meta[name="theme-color"]');
     if(couleur) couleur.setAttribute('content', sombre ? '#1A1512' : '#FBF6EE');
-    basculerCaptures(sombre);
+    basculerCaptures(sombre, document);
+    galeries.forEach(function(g){ delete g.dataset.manuel; marquerGalerie(g, sombre); });
     if(memoriser){
       try { localStorage.setItem('tremplin-theme', sombre ? 'sombre' : 'clair'); }
       catch(e){ /* stockage refuse : le choix vaut pour cette page seulement */ }
     }
   }
+
+  // ── Bascule propre a chaque galerie ──────────────────────────────────────
+  //
+  // Trois regles:
+  //   1. par defaut une galerie suit le theme du site;
+  //   2. un clic sur son bouton fixe son theme, elle ne suit plus le site;
+  //   3. des que le theme du site change, toutes les galeries se realignent et
+  //      oublient leur reglage manuel.
+  //
+  // Ce reglage n'est PAS memorise entre deux visites: il vit le temps de la
+  // page. Seul le theme global est persiste, donc aucun stockage nouveau n'est
+  // introduit et la page de confidentialite reste exacte.
+  var galeries = [].slice.call(document.querySelectorAll('.galerie'));
+
+  function marquerGalerie(galerie, sombre){
+    galerie.dataset.galerieTheme = sombre ? 'sombre' : 'clair';
+    var bouton = galerie.querySelector('.bascule-galerie');
+    if(bouton) bouton.setAttribute('aria-pressed', sombre ? 'true' : 'false');
+  }
+
+  galeries.forEach(function(galerie){
+    var bouton = galerie.querySelector('.bascule-galerie');
+    if(!bouton) return;
+    bouton.addEventListener('click', function(){
+      var sombre = galerie.dataset.galerieTheme !== 'sombre';
+      galerie.dataset.manuel = '1';
+      marquerGalerie(galerie, sombre);
+      basculerCaptures(sombre, galerie);
+    });
+  });
 
   // Etat de depart : theme.js a deja pose l'attribut, on aligne le bouton et les
   // captures dessus sans rien reecrire dans le stockage.
@@ -111,8 +142,11 @@ document.addEventListener('DOMContentLoaded', function(){
       var max = piste.scrollWidth - piste.clientWidth - 2;
       prec.disabled = piste.scrollLeft <= 2;
       suiv.disabled = piste.scrollLeft >= max;
+      // On masque les deux fleches, pas la rangee: elle porte desormais le
+      // bouton de bascule, qui doit rester visible meme sans defilement.
       var inutile = max <= 2;
-      prec.parentNode.style.visibility = inutile ? 'hidden' : 'visible';
+      prec.style.visibility = inutile ? 'hidden' : 'visible';
+      suiv.style.visibility = inutile ? 'hidden' : 'visible';
     }
     prec.addEventListener('click', function(){
       piste.scrollBy({ left: -pas(), behavior: doux ? 'auto' : 'smooth' });

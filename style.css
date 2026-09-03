@@ -201,7 +201,33 @@ h3{font-size:20px; letter-spacing:-.015em; line-height:1.2}
 .fleche[disabled]{opacity:.32; cursor:default}
 .bande.encre .fleche{background:rgba(246,240,230,.14); color:var(--clair)}
 .bande.encre .fleche:hover{background:rgba(246,240,230,.24)}
-@media(max-width:640px){ .fleches{display:none} }
+@media(max-width:640px){ .fleches .fleche{display:none} }
+
+/* Bascule de theme propre a une galerie.
+   Bouton texte et non icone seule: le libelle dit l'action. Le pictogramme
+   l'accompagne sans le remplacer. Les deux libelles vivent dans le HTML et
+   c'est la CSS qui montre le bon, comme pour le soleil et la lune de
+   l'interrupteur global: aucun texte faux ne peut ainsi s'afficher avant que
+   site.js ne s'execute. */
+.bascule-galerie{
+  display:none; align-items:center; gap:8px;
+  min-height:44px; padding:0 15px; border-radius:999px;
+  border:none; background:var(--voile); color:var(--encre);
+  font-family:inherit; font-size:14px; font-weight:500; cursor:pointer;
+  margin-right:auto;   /* colle le bouton a gauche, les fleches restent a droite */
+  transition:background .2s ease;
+}
+.js .bascule-galerie{display:inline-flex}
+.bascule-galerie:hover{background:var(--voile-fort)}
+.bascule-galerie svg{width:16px; height:16px; flex:none}
+.bascule-galerie .lune{display:none}
+.bascule-galerie .txt-clair{display:none}
+.galerie[data-galerie-theme="sombre"] .bascule-galerie .soleil{display:none}
+.galerie[data-galerie-theme="sombre"] .bascule-galerie .lune{display:block}
+.galerie[data-galerie-theme="sombre"] .bascule-galerie .txt-sombre{display:none}
+.galerie[data-galerie-theme="sombre"] .bascule-galerie .txt-clair{display:inline}
+.bande.encre .bascule-galerie{background:rgba(246,240,230,.14); color:var(--clair)}
+.bande.encre .bascule-galerie:hover{background:rgba(246,240,230,.24)}
 
 /* Chiffres */
 .chiffres{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; max-width:860px; margin:64px auto 0}
