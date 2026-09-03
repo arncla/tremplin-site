@@ -19,6 +19,59 @@ document.addEventListener('DOMContentLoaded', function(){
     cibles.forEach(function(el){ obs.observe(el); });
   }
 
+
+  // ── Interrupteur de theme ────────────────────────────────────────────────
+  //
+  // Le theme est deja applique par theme.js, charge en tete et sans defer, pour
+  // qu'aucun eclair clair ne precede le premier rendu. Ici on ne fait que gerer
+  // le clic, l'etat annonce et la bascule des captures.
+  //
+  // Defaut clair : sans choix enregistre, aucun attribut n'est pose. Le theme du
+  // systeme n'est volontairement pas suivi, un mode sombre automatique ayant ete
+  // retire du site parce qu'il s'imposait au visiteur.
+  var racine = document.documentElement;
+  var bascule = document.querySelector('.bascule');
+
+  function themeSombre(){ return racine.getAttribute('data-theme') === 'sombre'; }
+
+  // Les captures ne basculent qu'au moment ou le sombre est demande : un visiteur
+  // qui reste en clair ne telecharge jamais la seconde serie. Une capture sans
+  // jumelle, ios-guide-quiz, garde sa version claire sans rien casser.
+  function basculerCaptures(sombre){
+    document.querySelectorAll('img[data-sombre]').forEach(function(img){
+      if(sombre){
+        if(!img.dataset.clair) img.dataset.clair = img.getAttribute('src');
+        img.setAttribute('src', img.dataset.sombre);
+      } else if(img.dataset.clair){
+        img.setAttribute('src', img.dataset.clair);
+      }
+    });
+  }
+
+  function appliquer(sombre, memoriser){
+    if(sombre) racine.setAttribute('data-theme','sombre');
+    else racine.removeAttribute('data-theme');
+    if(bascule){
+      bascule.setAttribute('aria-pressed', sombre ? 'true' : 'false');
+      bascule.setAttribute('aria-label', sombre ? 'Passer en mode clair' : 'Passer en mode sombre');
+    }
+    var couleur = document.querySelector('meta[name="theme-color"]');
+    if(couleur) couleur.setAttribute('content', sombre ? '#1A1512' : '#FBF6EE');
+    basculerCaptures(sombre);
+    if(memoriser){
+      try { localStorage.setItem('tremplin-theme', sombre ? 'sombre' : 'clair'); }
+      catch(e){ /* stockage refuse : le choix vaut pour cette page seulement */ }
+    }
+  }
+
+  // Etat de depart : theme.js a deja pose l'attribut, on aligne le bouton et les
+  // captures dessus sans rien reecrire dans le stockage.
+  appliquer(themeSombre(), false);
+
+  if(bascule){
+    bascule.addEventListener('click', function(){ appliquer(!themeSombre(), true); });
+  }
+
   var burger = document.querySelector('.burger');
   var barre = document.querySelector('.barre');
   if(burger && barre){

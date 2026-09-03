@@ -66,6 +66,13 @@
   --corail:#E85A38;
   --accent:#BC3F1E;
   --trait:rgba(30,27,38,.12);
+  /* Roles separes de --encre, qui servait a la fois d'encre de texte et de fond. */
+  --fond-encre:#1E1B26;      /* bandes sombres, pied de page, chassis de telephone */
+  --sur-corail:#1E1B26;      /* texte pose sur un aplat corail, fixe dans les deux themes */
+  --voile:rgba(30,27,38,.07);
+  --voile-fort:rgba(30,27,38,.14);
+  --ombre:rgba(30,27,38,.16);
+  --fond-barre:rgba(251,246,238,.78);   /* barre collante, translucide */
   --clair:#F6F0E6;
   --clair-faible:rgba(246,240,230,.7);
   --serif:"Fraunces", Georgia, serif;
@@ -96,7 +103,7 @@ p{margin:0}
 /* Barre de navigation */
 .barre{
   position:sticky; top:0; z-index:50;
-  background:rgba(251,246,238,.78);
+  background:var(--fond-barre);
   backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
   border-bottom:1px solid var(--trait);
@@ -116,7 +123,7 @@ p{margin:0}
 /* Bandes */
 .bande{padding:clamp(88px,13vw,164px) 22px}
 .bande.blanche{background:var(--blanc)}
-.bande.encre{background:var(--encre)}
+.bande.encre{background:var(--fond-encre)}
 .bande.encre h2,.bande.encre h3{color:var(--clair)}
 .bande.encre .sous,.bande.encre .fin,.bande.encre p{color:var(--clair-faible)}
 .bande.courte{padding-top:clamp(48px,7vw,80px); padding-bottom:clamp(48px,7vw,80px)}
@@ -137,7 +144,7 @@ h3{font-size:20px; letter-spacing:-.015em; line-height:1.2}
 .bouton{
   display:inline-flex; align-items:center; gap:9px;
   font-weight:600; font-size:16px; text-decoration:none;
-  color:var(--encre); background:var(--corail);
+  color:var(--sur-corail); background:var(--corail);
   padding:14px 28px; border-radius:999px;
   transition:transform .25s ease, opacity .25s ease;
 }
@@ -154,10 +161,10 @@ h3{font-size:20px; letter-spacing:-.015em; line-height:1.2}
 /* Appareil */
 .tel{
   width:100%;
-  background:var(--encre);
+  background:var(--fond-encre);
   padding:8px;
   border-radius:40px;
-  box-shadow:0 18px 44px rgba(30,27,38,.16);
+  box-shadow:0 18px 44px var(--ombre);
 }
 .bande.encre .tel{background:#3A3440; box-shadow:0 18px 44px rgba(0,0,0,.4)}
 .tel img{width:100%; aspect-ratio:600/1304; object-fit:cover; border-radius:33px; display:block}
@@ -185,11 +192,11 @@ h3{font-size:20px; letter-spacing:-.015em; line-height:1.2}
 .fleches{display:flex; gap:10px; justify-content:flex-end; padding:0 22px; margin-top:6px}
 .fleche{
   width:38px; height:38px; border-radius:50%;
-  border:none; background:rgba(30,27,38,.07); color:var(--encre);
+  border:none; background:var(--voile); color:var(--encre);
   display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
   transition:background .2s ease;
 }
-.fleche:hover{background:rgba(30,27,38,.14)}
+.fleche:hover{background:var(--voile-fort)}
 .fleche svg{width:17px; height:17px}
 .fleche[disabled]{opacity:.32; cursor:default}
 .bande.encre .fleche{background:rgba(246,240,230,.14); color:var(--clair)}
@@ -215,7 +222,7 @@ h3{font-size:20px; letter-spacing:-.015em; line-height:1.2}
 
 .portrait{width:136px; height:136px; border-radius:50%; object-fit:cover; margin-bottom:32px}
 
-footer{background:var(--encre); color:var(--clair-faible); padding:54px 22px 62px; text-align:center; font-size:14px}
+footer{background:var(--fond-encre); color:var(--clair-faible); padding:54px 22px 62px; text-align:center; font-size:14px}
 footer nav{margin-top:16px; font-size:13.5px}
 footer a{color:var(--clair-faible); text-decoration:none}
 footer a:hover{color:var(--corail)}
@@ -308,10 +315,10 @@ footer .sep{margin:0 9px; opacity:.5}
 .barre-in{max-width:1140px}
 .barre nav{align-items:center}
 .barre .contact{
-  background:var(--corail); color:var(--encre);
+  background:var(--corail); color:var(--sur-corail);
   padding:7px 15px; border-radius:999px; font-weight:600;
 }
-.barre .contact:hover{color:var(--encre); opacity:.9}
+.barre .contact:hover{color:var(--sur-corail); opacity:.9}
 
 
 /* Heros en deux colonnes */
@@ -349,7 +356,7 @@ footer .sep{margin:0 9px; opacity:.5}
 /* Accessibilite */
 .evite{
   position:absolute; left:-9999px; top:0; z-index:100;
-  background:var(--encre); color:var(--clair); font-weight:600;
+  background:var(--fond-encre); color:var(--clair); font-weight:600;
   padding:12px 20px; border-radius:0 0 12px 0; text-decoration:none;
 }
 .evite:focus{left:0}
@@ -399,7 +406,7 @@ footer{line-height:1.7}
   border-radius:10px;
 }
 .burger svg{width:22px; height:22px}
-.burger:hover{background:rgba(30,27,38,.06)}
+.burger:hover{background:var(--voile)}
 @media(max-width:860px){
   .js .burger{display:inline-flex; order:2}
   .barre-in{position:relative}
@@ -453,3 +460,66 @@ footer a{color:var(--clair-faible)}
 .sommaire-page a:hover{border-color:var(--corail); color:var(--accent)}
 section[tabindex="-1"]:focus{outline:none}
 section[tabindex="-1"]:focus-visible{outline:2px solid var(--accent); outline-offset:-4px}
+
+/* ── Theme sombre ───────────────────────────────────────────────────────────
+   Valeurs relevees telles quelles dans TremplinShared/Color+Theme.swift du
+   depot iOS. Aucune couleur inventee, aucun violet, aucun magenta, aucun fond
+   bleute : le sombre de l'application est brun-encre et chaud.
+
+     tremplinBackground      1A1512      tremplinText           F4ECE0
+     tremplinSurface         271F19      tremplinTextSecondary  B3A796
+     tremplinSurfaceElevated 332A22      tremplinAccent         FF7551
+     tremplinOnAccent        1E1B26      tremplinAccentText     FF7551
+
+   Contrastes calcules sur les paires reellement employees, toutes au-dessus de
+   4,5 pour le texte : 15,45 texte sur fond, 13,82 sur surface, 11,99 sur bande
+   elevee, 7,66 attenue sur fond, 6,82 corail sur fond, 6,38 encre sur corail.
+   Aucune couleur de texte n'a eu besoin d'etre corrigee.
+
+   Le defaut reste clair : rien ici ne s'applique sans data-theme="sombre" sur
+   la racine, pose par le choix explicite du visiteur. */
+:root[data-theme="sombre"]{
+  --ivoire:#1A1512;
+  --blanc:#271F19;
+  --fond-encre:#332A22;
+  --encre:#F4ECE0;
+  --texte:#F4ECE0;
+  --faible:#B3A796;
+  --corail:#FF7551;
+  --accent:#FF7551;
+  --sur-corail:#1E1B26;
+  --trait:rgba(244,236,224,.14);
+  --clair:#F4ECE0;
+  --clair-faible:rgba(244,236,224,.7);
+  --voile:rgba(244,236,224,.09);
+  --voile-fort:rgba(244,236,224,.18);
+  --ombre:rgba(0,0,0,.5);
+  --fond-barre:rgba(26,21,18,.82);
+}
+/* Sur bande elevee le corail garde son role de lien : la valeur est deja celle
+   du theme, la regle du theme clair ne doit donc pas la figer. */
+:root[data-theme="sombre"] .bande.encre a{color:var(--accent)}
+:root[data-theme="sombre"] footer a{color:var(--clair-faible)}
+/* Le chassis de telephone reste plus sombre que la page, sinon il disparait. */
+:root[data-theme="sombre"] .tel{background:#1A1512; border-color:rgba(244,236,224,.18)}
+
+/* Interrupteur de theme */
+.bascule{
+  display:none; width:44px; height:44px; border:none; background:none;
+  color:var(--encre); cursor:pointer; align-items:center; justify-content:center;
+  border-radius:10px; order:1;
+}
+.js .bascule{display:inline-flex}
+.bascule:hover{background:var(--voile)}
+.bascule svg{width:21px; height:21px}
+.bascule .lune{display:none}
+:root[data-theme="sombre"] .bascule .soleil{display:none}
+:root[data-theme="sombre"] .bascule .lune{display:block}
+
+/* Transition douce entre les deux themes, sauf si le visiteur ne veut pas
+   d'animation. Elle ne porte que sur les couleurs, jamais sur la mise en page. */
+@media (prefers-reduced-motion: no-preference){
+  body, .bande, .barre, footer, .encart, .tel, .vue figcaption{
+    transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+  }
+}
