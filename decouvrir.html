@@ -22,6 +22,7 @@
 <meta property="og:image:alt" content="Tremplin, tout ce qu'on ne t'a jamais expliqué">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tremplinapp.ch/og.jpg">
+<script src="theme.js"></script>
 <link rel="stylesheet" href="style.css">
 <script src="site.js" defer></script>
 </head>
@@ -47,6 +48,10 @@
       <a href="#guides">Les guides</a>
       <a href="/#questions">Questions</a>
       <a href="/a-propos">À propos</a>
+      <button class="bascule" type="button" aria-pressed="false" aria-label="Passer en mode sombre">
+        <svg class="soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
+      </button>
       <a class="contact" href="mailto:tremplinapp@pm.me">Écrire</a>
     </nav>
   </div>
@@ -80,15 +85,15 @@
   <div class="galerie">
     <div class="piste" role="region" aria-label="Écrans de ta journée, galerie défilante" tabindex="0">
       <figure class="vue zoom">
-        <div class="tel"><img src="captures/ios-accueil-haut.jpg" alt="Accueil: humeur, tâches et courses" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-accueil-haut.jpg" data-sombre="captures/ios-accueil-haut-sombre.jpg" alt="Accueil: humeur, tâches et courses" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Aujourd'hui</b>Humeur, tâches, courses, échéance à venir.</figcaption>
       </figure>
       <figure class="vue zoom d1">
-        <div class="tel"><img src="captures/ios-accueil-progression.jpg" alt="Progression vers l'indépendance" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-accueil-progression.jpg" data-sombre="captures/ios-accueil-progression-sombre.jpg" alt="Progression vers l'indépendance" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Ta progression</b>Les démarches que tu maîtrises déjà et celles qu'il te reste à découvrir.</figcaption>
       </figure>
       <figure class="vue zoom d2">
-        <div class="tel"><img src="captures/ios-badges.jpg" alt="Badges obtenus" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-badges.jpg" data-sombre="captures/ios-badges-sombre.jpg" alt="Badges obtenus" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Badges</b>Sans classement, sans comparaison avec d'autres.</figcaption>
       </figure>
     </div>
@@ -107,15 +112,15 @@
   <div class="galerie">
     <div class="piste" role="region" aria-label="Écrans des guides, galerie défilante" tabindex="0">
       <figure class="vue zoom">
-        <div class="tel"><img src="captures/ios-guides-haut.jpg" alt="Onglet Guides" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-guides-haut.jpg" data-sombre="captures/ios-guides-haut-sombre.jpg" alt="Onglet Guides" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>L'entrée</b>Retrouve un guide par la recherche ou les raccourcis thématiques.</figcaption>
       </figure>
       <figure class="vue zoom d1">
-        <div class="tel"><img src="captures/ios-guides-sections.jpg" alt="Sections thématiques" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-guides-sections.jpg" data-sombre="captures/ios-guides-sections-sombre.jpg" alt="Sections thématiques" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Par thème</b>Démarches, santé, quotidien, sorties.</figcaption>
       </figure>
       <figure class="vue zoom d2">
-        <div class="tel"><img src="captures/ios-guide-detail.jpg" alt="Un guide ouvert" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-guide-detail.jpg" data-sombre="captures/ios-guide-detail-sombre.jpg" alt="Un guide ouvert" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Un guide</b>Des explications courtes, avec les démarches et les contacts utiles.</figcaption>
       </figure>
       <figure class="vue zoom d3">
@@ -123,7 +128,7 @@
         <figcaption><b>Le quiz</b>Quelques questions pour ancrer la lecture.</figcaption>
       </figure>
       <figure class="vue zoom d3">
-        <div class="tel"><img src="captures/ios-recherche.jpg" alt="Recherche globale" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-recherche.jpg" data-sombre="captures/ios-recherche-sombre.jpg" alt="Recherche globale" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>La recherche</b>Cherche un guide par mot clé.</figcaption>
       </figure>
     </div>
@@ -142,27 +147,27 @@
   <div class="galerie">
     <div class="piste" role="region" aria-label="Écrans des démarches pas à pas, galerie défilante" tabindex="0">
       <figure class="vue zoom">
-        <div class="tel"><img src="captures/ios-etapes-liste.jpg" alt="Parcours d'étapes clés" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-etapes-liste.jpg" data-sombre="captures/ios-etapes-liste-sombre.jpg" alt="Parcours d'étapes clés" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Trois parcours</b>Premier logement, premier job, l'argent.</figcaption>
       </figure>
       <figure class="vue zoom d1">
-        <div class="tel"><img src="captures/ios-etape-detail.jpg" alt="Détail d'un parcours" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-etape-detail.jpg" data-sombre="captures/ios-etape-detail-sombre.jpg" alt="Détail d'un parcours" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Le détail</b>Chaque étape renvoie au guide qui l'explique.</figcaption>
       </figure>
       <figure class="vue zoom d2">
-        <div class="tel"><img src="captures/ios-lettres.jpg" alt="Modèles de lettres" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-lettres.jpg" data-sombre="captures/ios-lettres-sombre.jpg" alt="Modèles de lettres" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Lettres types</b>Résiliation, réclamation, demande de subside.</figcaption>
       </figure>
       <figure class="vue zoom d3">
-        <div class="tel"><img src="captures/ios-droits.jpg" alt="Mes droits" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-droits.jpg" data-sombre="captures/ios-droits-sombre.jpg" alt="Mes droits" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Tes droits</b>Au travail, au logement, en tant que jeune.</figcaption>
       </figure>
       <figure class="vue zoom d3">
-        <div class="tel"><img src="captures/ios-echeances.jpg" alt="Échéances par canton" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-echeances.jpg" data-sombre="captures/ios-echeances-sombre.jpg" alt="Échéances par canton" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Échéances</b>Les dates qui comptent, canton par canton.</figcaption>
       </figure>
       <figure class="vue zoom d3">
-        <div class="tel"><img src="captures/ios-glossaire.jpg" alt="Glossaire" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-glossaire.jpg" data-sombre="captures/ios-glossaire-sombre.jpg" alt="Glossaire" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Glossaire</b>Une définition simple des principaux termes administratifs.</figcaption>
       </figure>
     </div>
@@ -181,15 +186,15 @@
   <div class="galerie">
     <div class="piste" role="region" aria-label="Écrans de l'argent, galerie défilante" tabindex="0">
       <figure class="vue zoom">
-        <div class="tel"><img src="captures/ios-argent.jpg" alt="Mon Budget" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-argent.jpg" data-sombre="captures/ios-argent-sombre.jpg" alt="Mon Budget" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Le mois</b>Revenus, sorties, épargne, solde disponible.</figcaption>
       </figure>
       <figure class="vue zoom d1">
-        <div class="tel"><img src="captures/ios-argent-graphique.jpg" alt="Répartition des dépenses" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-argent-graphique.jpg" data-sombre="captures/ios-argent-graphique-sombre.jpg" alt="Répartition des dépenses" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>La répartition</b>La répartition de tes dépenses, catégorie par catégorie.</figcaption>
       </figure>
       <figure class="vue zoom d2">
-        <div class="tel"><img src="captures/ios-argent-ajout.jpg" alt="Ajout d'une entrée" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-argent-ajout.jpg" data-sombre="captures/ios-argent-ajout-sombre.jpg" alt="Ajout d'une entrée" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Ajouter</b>Quelques secondes, catégories déjà prêtes.</figcaption>
       </figure>
     </div>
@@ -208,19 +213,19 @@
   <div class="galerie">
     <div class="piste" role="region" aria-label="Écrans du moral, galerie défilante" tabindex="0">
       <figure class="vue zoom">
-        <div class="tel"><img src="captures/ios-bienetre-haut.jpg" alt="Onglet Bien-être" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-bienetre-haut.jpg" data-sombre="captures/ios-bienetre-haut-sombre.jpg" alt="Onglet Bien-être" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Selon ta journée</b>Les suggestions suivent l'humeur enregistrée.</figcaption>
       </figure>
       <figure class="vue zoom d1">
-        <div class="tel"><img src="captures/ios-bienetre-exercices.jpg" alt="Exercices guidés" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-bienetre-exercices.jpg" data-sombre="captures/ios-bienetre-exercices-sombre.jpg" alt="Exercices guidés" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Quatre exercices</b>Deux à trois minutes, hors connexion.</figcaption>
       </figure>
       <figure class="vue zoom d2">
-        <div class="tel"><img src="captures/ios-exercice-respiration.jpg" alt="Respiration guidée" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-exercice-respiration.jpg" data-sombre="captures/ios-exercice-respiration-sombre.jpg" alt="Respiration guidée" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Respirer</b>Un rythme visuel à suivre.</figcaption>
       </figure>
       <figure class="vue zoom d3">
-        <div class="tel"><img src="captures/ios-jeu.jpg" alt="Le jeu Tremplin Jump" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-jeu.jpg" data-sombre="captures/ios-jeu-sombre.jpg" alt="Le jeu Tremplin Jump" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Tremplin Jump</b>Un jeu simple, pour faire une courte pause.</figcaption>
       </figure>
     </div>
@@ -239,27 +244,27 @@
   <div class="galerie">
     <div class="piste" role="region" aria-label="Écrans du travail, galerie défilante" tabindex="0">
       <figure class="vue zoom">
-        <div class="tel"><img src="captures/ios-boulot.jpg" alt="Onglet Boulot" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-boulot.jpg" data-sombre="captures/ios-boulot-sombre.jpg" alt="Onglet Boulot" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Cinq outils</b>Parcours, candidature, salaire, réseau, entretien.</figcaption>
       </figure>
       <figure class="vue zoom d1">
-        <div class="tel"><img src="captures/ios-parcours.jpg" alt="Mon Parcours" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-parcours.jpg" data-sombre="captures/ios-parcours-sombre.jpg" alt="Mon Parcours" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Ton parcours</b>Expériences et stages, prêts à reprendre en CV.</figcaption>
       </figure>
       <figure class="vue zoom d2">
-        <div class="tel"><img src="captures/ios-postuler.jpg" alt="Postuler" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-postuler.jpg" data-sombre="captures/ios-postuler-sombre.jpg" alt="Postuler" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Postuler</b>Ce que doit contenir un dossier.</figcaption>
       </figure>
       <figure class="vue zoom d3">
-        <div class="tel"><img src="captures/ios-salaire.jpg" alt="Calculateur de salaire" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-salaire.jpg" data-sombre="captures/ios-salaire-sombre.jpg" alt="Calculateur de salaire" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Du brut au net</b>Les déductions détaillées, ligne par ligne.</figcaption>
       </figure>
       <figure class="vue zoom d3">
-        <div class="tel"><img src="captures/ios-reseau.jpg" alt="Mon Réseau" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-reseau.jpg" data-sombre="captures/ios-reseau-sombre.jpg" alt="Mon Réseau" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Ton réseau</b>Qui tu as rencontré, et quoi faire ensuite.</figcaption>
       </figure>
       <figure class="vue zoom d3">
-        <div class="tel"><img src="captures/ios-entretien.jpg" alt="Questions d'entretien" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-entretien.jpg" data-sombre="captures/ios-entretien-sombre.jpg" alt="Questions d'entretien" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Entretien</b>Les questions qui tombent, et comment s'y préparer.</figcaption>
       </figure>
     </div>
@@ -292,28 +297,16 @@
   <div class="galerie">
     <div class="piste" role="region" aria-label="Écrans de prise en main, galerie défilante" tabindex="0">
       <figure class="vue zoom">
-        <div class="tel"><img src="captures/ios-onboarding.jpg" alt="Écran de bienvenue" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-onboarding.jpg" data-sombre="captures/ios-onboarding-sombre.jpg" alt="Écran de bienvenue" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Premier lancement</b>Aucun formulaire d'inscription.</figcaption>
       </figure>
       <figure class="vue zoom d1">
-        <div class="tel"><img src="captures/ios-reglages.jpg" alt="Réglages" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-reglages.jpg" data-sombre="captures/ios-reglages-sombre.jpg" alt="Réglages" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>Réglages</b>Thème, rappels, canton, suppression des données.</figcaption>
       </figure>
       <figure class="vue zoom d2">
-        <div class="tel"><img src="captures/ios-apropos.jpg" alt="À propos dans l'application" loading="lazy" width="600" height="1304"></div>
+        <div class="tel"><img src="captures/ios-apropos.jpg" data-sombre="captures/ios-apropos-sombre.jpg" alt="À propos dans l'application" loading="lazy" width="600" height="1304"></div>
         <figcaption><b>À propos</b>Qui fait l'application, avec quelles sources.</figcaption>
-      </figure>
-      <figure class="vue zoom d3">
-        <div class="tel"><img src="captures/ios-sombre-accueil.jpg" alt="Accueil en mode sombre" loading="lazy" width="600" height="1304"></div>
-        <figcaption><b>Mode sombre</b>Le mode sombre réduit la luminosité de l'interface.</figcaption>
-      </figure>
-      <figure class="vue zoom d3">
-        <div class="tel"><img src="captures/ios-sombre-guides.jpg" alt="Guides en mode sombre" loading="lazy" width="600" height="1304"></div>
-        <figcaption><b>Guides, sombre</b>Contrastes vérifiés.</figcaption>
-      </figure>
-      <figure class="vue zoom d3">
-        <div class="tel"><img src="captures/ios-sombre-bienetre.jpg" alt="Bien-être en mode sombre" loading="lazy" width="600" height="1304"></div>
-        <figcaption><b>Bien-être, sombre</b>L'espace consacré au moral, en mode sombre.</figcaption>
       </figure>
     </div>
     <div class="fleches">
