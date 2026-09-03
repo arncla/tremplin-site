@@ -409,14 +409,25 @@ footer{line-height:1.7}
 .burger:hover{background:var(--voile)}
 @media(max-width:860px){
   .js .burger{display:inline-flex; order:2}
-  .barre-in{position:relative}
-  .js .barre nav{
-    display:none; position:absolute; top:52px; right:0; left:0;
+  /* Nav reste dans le flux normal, comme avant. Ce qui change: seuls ses liens
+     <a> se replient (display:none), pas nav lui-meme. La bascule, un <button>
+     et non un <a>, n'est jamais visee par la regle et reste toujours visible,
+     immediatement a gauche du burger, sans qu'il faille ouvrir le menu. */
+  .barre-in{position:relative; justify-content:flex-start; gap:12px}
+  .js .barre nav{margin-left:auto}
+  .js .barre nav > a{display:none}
+  .js .barre.ouvert .burger{margin-left:auto}
+  .js .barre.ouvert nav{
+    margin-left:0; position:absolute; top:52px; right:0; left:0;
     flex-direction:column; align-items:stretch; gap:0;
     background:var(--ivoire); border-bottom:1px solid var(--trait);
     padding:8px 22px 18px;
   }
-  .js .barre.ouvert nav{display:flex}
+  .js .barre.ouvert nav > a{display:block}
+  /* La bascule se retrouve dans le tiroir ouvert, entre A propos et Ecrire,
+     a sa place naturelle: elle y reste utilisable, en plus d'etre deja
+     accessible fermee, a cote du burger. */
+  .js .barre.ouvert nav > .bascule{align-self:flex-start; margin:6px 0}
   .barre nav a{padding:14px 4px; font-size:16px; border-bottom:1px solid var(--trait)}
   .barre nav a:last-child{border-bottom:none}
   .barre .contact{
@@ -507,7 +518,7 @@ section[tabindex="-1"]:focus-visible{outline:2px solid var(--accent); outline-of
 .bascule{
   display:none; width:44px; height:44px; border:none; background:none;
   color:var(--encre); cursor:pointer; align-items:center; justify-content:center;
-  border-radius:10px; order:1;
+  border-radius:10px;
 }
 .js .bascule{display:inline-flex}
 .bascule:hover{background:var(--voile)}
