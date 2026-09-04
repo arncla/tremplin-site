@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="theme-color" content="#FBF6EE">
 <title>Tremplin | L'app qui accompagne les 15 à 25 ans en Suisse romande</title>
 <meta name="description" content="Application gratuite pour les 15 à 25 ans en Suisse romande. Les démarches, l'argent, le travail, le moral. Sans publicité, sans compte, aucune donnée envoyée automatiquement.">
@@ -60,7 +60,7 @@
    "name": "Qui écrit les contenus?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Un éducateur social qui accompagne ces jeunes au quotidien. Chaque information factuelle est ensuite vérifiée à partir d'une source officielle, administrations cantonales, offices fédéraux ou organismes spécialisés, et chaque guide affiche la date de sa dernière vérification. Les contenus les plus sensibles, santé mentale et réduction des risques, ont été relus par des organismes spécialisés de Suisse romande avant publication. Leurs noms seront indiqués avec leur accord."
+    "text": "Un éducateur social qui accompagne ces jeunes au quotidien. Chaque information factuelle est ensuite vérifiée à partir d'une source officielle, administrations cantonales, offices fédéraux ou organismes spécialisés, et chaque guide affiche la date de sa dernière vérification. Les contenus les plus sensibles, santé mentale et réduction des risques, ont été relus par des organismes spécialisés de Suisse romande avant publication."
    }
   },
   {
@@ -126,16 +126,15 @@
 <meta property="og:image" content="https://tremplinapp.ch/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tremplin, tout ce qu'on ne t'a jamais expliqué">
+<meta property="og:image:alt" content="Tremplin. Tout ce qu'on ne t'a jamais expliqué. Application gratuite, 15 à 25 ans, Suisse romande. Logo corail en forme de tremplin sur fond ivoire.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tremplinapp.ch/og.jpg">
+<meta name="twitter:title" content="Tremplin | L'app qui accompagne les 15 à 25 ans en Suisse romande">
+<meta name="twitter:description" content="Application gratuite pour les 15 à 25 ans en Suisse romande. Les démarches, l'argent, le travail, le moral. Sans publicité, sans compte, aucune donnée envoyée automatiquement.">
+<meta name="twitter:image:alt" content="Tremplin. Tout ce qu'on ne t'a jamais expliqué. Application gratuite, 15 à 25 ans, Suisse romande. Logo corail en forme de tremplin sur fond ivoire.">
 <script src="theme.js"></script>
 <link rel="stylesheet" href="style.css">
 <script src="site.js" defer></script>
-<style>
-  .marque{width:112px; height:90px; margin:0 auto 36px}
-  .hero{padding-top:clamp(56px,8vw,96px)}
-</style>
 </head>
 <body>
 
@@ -150,19 +149,19 @@
       </svg>
       <span>Tremplin</span>
     </a>
-          <button class="burger" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Ouvrir le menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <nav id="menu-principal" aria-label="Navigation principale">
+    <button class="bascule" type="button" aria-pressed="false" aria-label="Mode sombre">
+      <svg class="soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
+    </button>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Ouvrir le menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav id="menu-principal" aria-label="Navigation principale">
       <a href="/decouvrir">L'application</a>
       <a href="#pour-qui">Pour qui</a>
-      <a href="#guides">Les guides</a>
+      <a href="/#guides">Les guides</a>
       <a href="#questions">Questions</a>
       <a href="/a-propos">À propos</a>
-      <button class="bascule" type="button" aria-pressed="false" aria-label="Passer en mode sombre">
-        <svg class="soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-        <svg class="lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
-      </button>
       <a class="contact" href="mailto:tremplinapp@pm.me">Écrire</a>
     </nav>
   </div>
@@ -229,11 +228,10 @@
       </figure>
     </div>
     <div class="fleches">
-      <button class="bascule-galerie" type="button" aria-pressed="false">
+      <button class="bascule-galerie" type="button" aria-pressed="false" aria-label="Mode sombre pour cette galerie">
         <svg class="soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
-        <span class="txt-sombre">Voir en sombre</span>
-        <span class="txt-clair">Voir en clair</span>
+        <span>Mode sombre</span>
       </button>
       <button class="fleche prec" type="button" aria-label="Voir les écrans précédents">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
@@ -278,7 +276,7 @@
     <p class="fin anim d2">Si tu actives la synchronisation sur iPhone, tes contenus passent par ton compte iCloud privé, auquel nous n'avons aucun accès.</p>
     <div class="chiffres">
       <div class="chiffre anim"><div class="n">17</div><p>guides pratiques, écrits pour la Suisse romande</p></div>
-      <div class="chiffre anim d1"><div class="n">6</div><p>cantons romands, avec leurs délais et leurs adresses</p></div>
+      <div class="chiffre anim d1"><div class="n">6</div><p>cantons couverts, avec leurs délais et leurs adresses</p></div>
       <div class="chiffre anim d2"><div class="n">0</div><p>donnée envoyée automatiquement à Tremplin</p></div>
     </div>
   </div>
@@ -286,15 +284,15 @@
 
 <section class="bande">
   <div class="centre">
-    <h2 class="anim">Des informations adaptées aux six cantons romands</h2>
-    <p class="sous anim d1">Un délai fiscal, un service social ou une aide au logement ne sont pas les mêmes à Genève et à Delémont. Tremplin tient compte des six cantons romands.</p>
+    <h2 class="anim">Des informations adaptées aux six cantons couverts</h2>
+    <p class="sous anim d1">Les délais fiscaux, les services sociaux et les aides au logement varient selon le canton. Tremplin couvre actuellement Vaud, Genève, Valais, Fribourg, Neuchâtel et Jura.</p>
   </div>
   <div class="paire">
     <div class="tel zoom"><img src="captures/ios-echeances.jpg" data-sombre="captures/ios-echeances-sombre.jpg" alt="Échéances: dates fiscales et administratives, différenciées selon le canton" loading="lazy" width="600" height="1304"></div>
     <div class="tel zoom d2"><img src="captures/ios-guide-detail.jpg" data-sombre="captures/ios-guide-detail-sombre.jpg" alt="Guide sur l'assurance maladie: principe de base, prime mensuelle et sources officielles" loading="lazy" width="600" height="1304"></div>
   </div>
   <div class="centre">
-    <p class="fin anim">Chaque information est contrôlée à sa source officielle. Chaque guide affiche la date de sa dernière vérification.</p>
+    <p class="fin anim">Chaque information est vérifiée auprès d'une source officielle. Chaque guide affiche la date de sa dernière vérification.</p>
   </div>
 </section>
 
@@ -304,7 +302,7 @@
     <p class="sous anim d1">Un bouton reste visible sur chaque écran. Il ouvre les numéros d'urgence et les lignes d'écoute, sans avoir à les chercher.</p>
     <div class="texte">
       <div class="encart anim d2">
-        <h3>Si ça ne va pas, maintenant</h3>
+        <h3>Si tu as besoin d'aide maintenant</h3>
         <p>Le <a href="tel:147">147</a> répond aux jeunes à toute heure, gratuitement et anonymement. La Main Tendue répond au <a href="tel:143">143</a>. En cas de danger vital, appelle le <a href="tel:144">144</a>. Pas besoin d'avoir installé l'application.</p>
       </div>
     </div>
@@ -353,7 +351,7 @@
         <summary>Qui écrit les contenus?</summary>
         <div class="rep">
           <p>Un éducateur social qui accompagne ces jeunes au quotidien. Chaque information factuelle est ensuite vérifiée à partir d'une source officielle, administrations cantonales, offices fédéraux ou organismes spécialisés, et chaque guide affiche la date de sa dernière vérification.</p>
-          <p>Les contenus les plus sensibles, santé mentale et réduction des risques, ont été relus par des organismes spécialisés de Suisse romande avant publication. Leurs noms seront indiqués avec leur accord.</p>
+          <p>Les contenus les plus sensibles, santé mentale et réduction des risques, ont été relus par des organismes spécialisés de Suisse romande avant publication.</p>
         </div>
       </details>
       <details class="anim">
@@ -396,7 +394,14 @@
       <a class="bouton" href="mailto:tremplinapp@pm.me?subject=Tester%20Tremplin%20dans%20notre%20structure">Écrire pour participer</a>
       <a class="bouton creux" href="/decouvrir">Voir l'application d'abord</a>
     </div>
-    <p class="fin anim d3">tremplinapp@pm.me · Réponse sous quelques jours.</p>
+    <p class="fin anim d3"><a href="mailto:tremplinapp@pm.me">tremplinapp@pm.me</a> · Réponse sous quelques jours.</p>
+    <p class="copie anim d3">
+      <button class="copier" type="button" data-adresse="tremplinapp@pm.me">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+        Copier l'adresse
+      </button>
+      <span class="copie-retour" aria-live="polite"></span>
+    </p>
   </div>
 </section>
 

@@ -58,6 +58,7 @@
 }
 
 :root{
+  color-scheme:light;
   --ivoire:#FBF6EE;
   --blanc:#FFFFFF;
   --encre:#1E1B26;
@@ -204,11 +205,9 @@ h3{font-size:20px; letter-spacing:-.015em; line-height:1.2}
 @media(max-width:640px){ .fleches .fleche{display:none} }
 
 /* Bascule de theme propre a une galerie.
-   Bouton texte et non icone seule: le libelle dit l'action. Le pictogramme
-   l'accompagne sans le remplacer. Les deux libelles vivent dans le HTML et
-   c'est la CSS qui montre le bon, comme pour le soleil et la lune de
-   l'interrupteur global: aucun texte faux ne peut ainsi s'afficher avant que
-   site.js ne s'execute. */
+   Libelle stable, "Mode sombre" : l'etat est porte par aria-pressed et par le
+   pictogramme, soleil en clair, lune en sombre, que la CSS choisit d'apres
+   l'attribut de la galerie. Aucun texte ne change au clic. */
 .bascule-galerie{
   display:none; align-items:center; gap:8px;
   min-height:44px; padding:0 15px; border-radius:999px;
@@ -221,11 +220,8 @@ h3{font-size:20px; letter-spacing:-.015em; line-height:1.2}
 .bascule-galerie:hover{background:var(--voile-fort)}
 .bascule-galerie svg{width:16px; height:16px; flex:none}
 .bascule-galerie .lune{display:none}
-.bascule-galerie .txt-clair{display:none}
 .galerie[data-galerie-theme="sombre"] .bascule-galerie .soleil{display:none}
 .galerie[data-galerie-theme="sombre"] .bascule-galerie .lune{display:block}
-.galerie[data-galerie-theme="sombre"] .bascule-galerie .txt-sombre{display:none}
-.galerie[data-galerie-theme="sombre"] .bascule-galerie .txt-clair{display:inline}
 .bande.encre .bascule-galerie{background:rgba(246,240,230,.14); color:var(--clair)}
 .bande.encre .bascule-galerie:hover{background:rgba(246,240,230,.24)}
 
@@ -246,7 +242,7 @@ h3{font-size:20px; letter-spacing:-.015em; line-height:1.2}
 .encart p{font-size:15.5px; color:var(--faible)}
 .bande.encre .encart h3{color:var(--clair)}
 
-.portrait{width:136px; height:136px; border-radius:50%; object-fit:cover; margin-bottom:32px}
+.portrait{width:136px; height:136px; border-radius:50%; object-fit:cover; margin:0 auto 32px}
 
 footer{background:var(--fond-encre); color:var(--clair-faible); padding:54px 22px 62px; text-align:center; font-size:14px}
 footer nav{margin-top:16px; font-size:13.5px}
@@ -348,7 +344,7 @@ footer .sep{margin:0 9px; opacity:.5}
 
 
 /* Heros en deux colonnes */
-.hero{padding-top:clamp(30px,4vw,52px); padding-bottom:clamp(48px,6vw,72px)}
+.hero{padding-top:clamp(56px,8vw,96px); padding-bottom:clamp(48px,6vw,72px)}
 @media(min-width:900px){
   .hero{min-height:calc(100svh - 52px); display:flex; align-items:center; justify-content:center}
   .hero-grille{width:100%}
@@ -395,6 +391,15 @@ footer{line-height:1.7}
 /* Raccord sous un en-tete de page */
 .bande.suite{padding-top:clamp(24px,3vw,40px)}
 .bande.courte.entete-page{padding-bottom:clamp(14px,2vw,24px)}
+/* Titres des pages secondaires, autrefois en style en ligne : la politique de
+   securite n'autorise plus aucun style dans le HTML. */
+.entete-page h1{font-size:clamp(36px,6.5vw,68px)}
+.entete-page h1.grand{font-size:clamp(40px,7.5vw,84px)}
+
+/* Page confidentialite */
+.legal h2{font-size:clamp(22px,3.4vw,29px); line-height:1.16; margin-top:46px}
+.legal h2:first-of-type{margin-top:0}
+.legal .corps{margin-top:18px}
 
 /* Deux actions dans le heros, alignees sur une ligne des que la place le permet */
 .hero .actions{gap:10px}
@@ -434,26 +439,20 @@ footer{line-height:1.7}
 .burger svg{width:22px; height:22px}
 .burger:hover{background:var(--voile)}
 @media(max-width:860px){
-  .js .burger{display:inline-flex; order:2}
-  /* Nav reste dans le flux normal, comme avant. Ce qui change: seuls ses liens
-     <a> se replient (display:none), pas nav lui-meme. La bascule, un <button>
-     et non un <a>, n'est jamais visee par la regle et reste toujours visible,
-     immediatement a gauche du burger, sans qu'il faille ouvrir le menu. */
+  /* Ordre du DOM = ordre visuel = ordre clavier : logo, bascule de theme,
+     burger, puis le menu. La bascule porte margin-left:auto (regle generale)
+     et pousse le burger a droite avec elle ; aucune regle order n'est
+     necessaire. Le menu replie est retire du flux, il n'a plus rien a montrer
+     puisque la bascule vit hors de lui. */
+  .js .burger{display:inline-flex}
   .barre-in{position:relative; justify-content:flex-start; gap:12px}
-  .js .barre nav{margin-left:auto}
-  .js .barre nav > a{display:none}
-  .js .barre.ouvert .burger{margin-left:auto}
+  .js .barre nav{display:none}
   .js .barre.ouvert nav{
-    margin-left:0; position:absolute; top:52px; right:0; left:0;
+    display:flex; position:absolute; top:52px; right:0; left:0;
     flex-direction:column; align-items:stretch; gap:0;
     background:var(--ivoire); border-bottom:1px solid var(--trait);
     padding:8px 22px 18px;
   }
-  .js .barre.ouvert nav > a{display:block}
-  /* La bascule se retrouve dans le tiroir ouvert, entre A propos et Ecrire,
-     a sa place naturelle: elle y reste utilisable, en plus d'etre deja
-     accessible fermee, a cote du burger. */
-  .js .barre.ouvert nav > .bascule{align-self:flex-start; margin:6px 0}
   .barre nav a{padding:14px 4px; font-size:16px; border-bottom:1px solid var(--trait)}
   .barre nav a:last-child{border-bottom:none}
   .barre .contact{
@@ -481,9 +480,22 @@ footer{line-height:1.7}
 .bande.encre a{color:#FF7551}
 footer a{color:var(--clair-faible)}
 
-/* Sommaire local, page L'application */
+/* Sommaire local, page L'application. Le bloc .sommaire-colle est un enfant
+   direct de main, hors de l'en-tete, pour pouvoir coller sous la barre : un
+   element collant ne depasse jamais son parent. Au-dessus de 861px seulement ;
+   sur mobile il reste a sa place, un second bandeau collant mangerait pres de
+   cent pixels d'un ecran de 568. */
+.sommaire-colle{
+  background:var(--ivoire);
+  padding:calc(26px - clamp(14px,2vw,24px)) 22px clamp(14px,2vw,24px);
+}
+@media(min-width:861px){
+  .sommaire-colle{position:sticky; top:52px; z-index:40}
+  /* Les ancres des sections tiennent compte du sommaire colle */
+  .sommaire-colle ~ section{scroll-margin-top:76px}
+}
 .sommaire-page{
-  display:flex; gap:8px; margin-top:26px;
+  display:flex; gap:8px; max-width:860px; margin:0 auto;
   overflow-x:auto; overscroll-behavior-x:contain;
   padding-bottom:4px;
 }
@@ -495,8 +507,23 @@ footer a{color:var(--clair-faible)}
   font-size:14px; font-weight:500; white-space:nowrap;
 }
 .sommaire-page a:hover{border-color:var(--corail); color:var(--accent)}
-section[tabindex="-1"]:focus{outline:none}
-section[tabindex="-1"]:focus-visible{outline:2px solid var(--accent); outline-offset:-4px}
+/* Le focus d'une entree du sommaire va sur le titre, indicateur compact */
+h2[tabindex="-1"]:focus{outline:none}
+h2[tabindex="-1"]:focus-visible{outline:2px solid var(--accent); outline-offset:6px; border-radius:8px}
+
+/* Copie de l'adresse : bouton visible avec script seulement */
+.copie{display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:center; align-items:center; margin-top:14px}
+.copier{
+  display:none; align-items:center; gap:8px;
+  min-height:44px; padding:0 15px; border-radius:999px;
+  border:none; background:var(--voile); color:var(--encre);
+  font-family:inherit; font-size:14px; font-weight:500; cursor:pointer;
+  transition:background .2s ease;
+}
+.js .copier{display:inline-flex}
+.copier:hover{background:var(--voile-fort)}
+.copier svg{width:16px; height:16px; flex:none}
+.copie-retour{font-size:14.5px; color:var(--faible)}
 
 /* ── Theme sombre ───────────────────────────────────────────────────────────
    Valeurs relevees telles quelles dans TremplinShared/Color+Theme.swift du
@@ -516,6 +543,7 @@ section[tabindex="-1"]:focus-visible{outline:2px solid var(--accent); outline-of
    Le defaut reste clair : rien ici ne s'applique sans data-theme="sombre" sur
    la racine, pose par le choix explicite du visiteur. */
 :root[data-theme="sombre"]{
+  color-scheme:dark;
   --ivoire:#1A1512;
   --blanc:#271F19;
   --fond-encre:#332A22;
@@ -540,11 +568,13 @@ section[tabindex="-1"]:focus-visible{outline:2px solid var(--accent); outline-of
 /* Le chassis de telephone reste plus sombre que la page, sinon il disparait. */
 :root[data-theme="sombre"] .tel{background:#1A1512; border-color:rgba(244,236,224,.18)}
 
-/* Interrupteur de theme */
+/* Interrupteur de theme. Place dans le DOM entre le logo et le burger, hors
+   du menu : margin-left:auto le pousse a droite, colle au menu sur ordinateur
+   et au burger sur mobile, sans reordonner visuellement. */
 .bascule{
   display:none; width:44px; height:44px; border:none; background:none;
   color:var(--encre); cursor:pointer; align-items:center; justify-content:center;
-  border-radius:10px;
+  border-radius:10px; margin-left:auto;
 }
 .js .bascule{display:inline-flex}
 .bascule:hover{background:var(--voile)}

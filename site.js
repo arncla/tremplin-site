@@ -1,4 +1,7 @@
-document.documentElement.classList.add('js');
+// js-actif dit a theme.js que site.js est bien arrive : sans elle, theme.js
+// retire la classe js au bout de quatre secondes pour que rien ne reste cache.
+// On repose js au passage, au cas ou ce fichier arriverait apres ce delai.
+document.documentElement.classList.add('js', 'js-actif');
 
 document.addEventListener('DOMContentLoaded', function(){
 
@@ -138,8 +141,8 @@ document.addEventListener('DOMContentLoaded', function(){
     if(sombre) racine.setAttribute('data-theme','sombre');
     else racine.removeAttribute('data-theme');
     if(bascule){
+      // Nom accessible stable, "Mode sombre" : seul aria-pressed porte l'etat.
       bascule.setAttribute('aria-pressed', sombre ? 'true' : 'false');
-      bascule.setAttribute('aria-label', sombre ? 'Passer en mode clair' : 'Passer en mode sombre');
     }
     var couleur = document.querySelector('meta[name="theme-color"]');
     if(couleur) couleur.setAttribute('content', sombre ? '#1A1512' : '#FBF6EE');
@@ -188,6 +191,42 @@ document.addEventListener('DOMContentLoaded', function(){
   if(bascule){
     bascule.addEventListener('click', function(){ appliquer(!themeSombre(), true); });
   }
+
+  // ── Sommaire local : le focus va sur le titre de la section ─────────────
+  //
+  // L'ancre reste la section, la position de defilement ne change donc pas.
+  // C'est son titre h2, porteur de tabindex=-1, qui recoit le focus : le
+  // contour entoure le titre et non toute la section.
+  function focaliserTitre(id){
+    var section = id && document.getElementById(id);
+    var titre = section && section.querySelector('h2[tabindex="-1"]');
+    if(titre) titre.focus({ preventScroll: true });
+  }
+  window.addEventListener('hashchange', function(){ focaliserTitre(location.hash.slice(1)); });
+  document.querySelectorAll('.sommaire-page a[href^="#"]').forEach(function(lien){
+    lien.addEventListener('click', function(){
+      var id = lien.getAttribute('href').slice(1);
+      setTimeout(function(){ focaliserTitre(id); }, 0);
+    });
+  });
+
+  // ── Copie de l'adresse ───────────────────────────────────────────────────
+  // Presse-papiers du navigateur uniquement : aucun service, aucun stockage.
+  // Le retour est ecrit dans une zone aria-live pour etre annonce.
+  document.querySelectorAll('.copier').forEach(function(bouton){
+    var retour = bouton.parentNode.querySelector('.copie-retour');
+    function dire(message){ if(retour) retour.textContent = message; }
+    bouton.addEventListener('click', function(){
+      var adresse = bouton.dataset.adresse || '';
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(adresse).then(
+          function(){ dire('Adresse copiée'); },
+          function(){ dire('Copie impossible, sélectionne l\'adresse.'); });
+      } else {
+        dire('Copie impossible, sélectionne l\'adresse.');
+      }
+    });
+  });
 
   var burger = document.querySelector('.burger');
   var barre = document.querySelector('.barre');

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="theme-color" content="#FBF6EE">
 <title>L'application Tremplin</title>
 <meta name="description" content="Les cinq espaces de Tremplin en images: la journée, les guides, l'argent, le moral et le travail.">
@@ -19,9 +19,12 @@
 <meta property="og:image" content="https://tremplinapp.ch/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tremplin, tout ce qu'on ne t'a jamais expliqué">
+<meta property="og:image:alt" content="Tremplin. Tout ce qu'on ne t'a jamais expliqué. Application gratuite, 15 à 25 ans, Suisse romande. Logo corail en forme de tremplin sur fond ivoire.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tremplinapp.ch/og.jpg">
+<meta name="twitter:title" content="L'application Tremplin">
+<meta name="twitter:description" content="Les cinq espaces de Tremplin en images: la journée, les guides, l'argent, le moral et le travail.">
+<meta name="twitter:image:alt" content="Tremplin. Tout ce qu'on ne t'a jamais expliqué. Application gratuite, 15 à 25 ans, Suisse romande. Logo corail en forme de tremplin sur fond ivoire.">
 <script src="theme.js"></script>
 <link rel="stylesheet" href="style.css">
 <script src="site.js" defer></script>
@@ -39,19 +42,19 @@
       </svg>
       <span>Tremplin</span>
     </a>
-          <button class="burger" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Ouvrir le menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <nav id="menu-principal" aria-label="Navigation principale">
+    <button class="bascule" type="button" aria-pressed="false" aria-label="Mode sombre">
+      <svg class="soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
+    </button>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Ouvrir le menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav id="menu-principal" aria-label="Navigation principale">
       <a href="/decouvrir" aria-current="page">L'application</a>
       <a href="/#pour-qui">Pour qui</a>
-      <a href="#guides">Les guides</a>
+      <a href="/#guides">Les guides</a>
       <a href="/#questions">Questions</a>
       <a href="/a-propos">À propos</a>
-      <button class="bascule" type="button" aria-pressed="false" aria-label="Passer en mode sombre">
-        <svg class="soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-        <svg class="lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
-      </button>
       <a class="contact" href="mailto:tremplinapp@pm.me">Écrire</a>
     </nav>
   </div>
@@ -61,8 +64,11 @@
 
 <section class="bande courte entete-page">
   <div class="centre">
-    <h1 class="anim" style="font-size:clamp(40px,7.5vw,84px)">L'application</h1>
+    <h1 class="anim grand">L'application</h1>
     <p class="sous anim d1">Cinq espaces pour retrouver rapidement une information ou un outil.</p>
+  </div>
+</section>
+<div class="sommaire-colle">
     <nav class="sommaire-page anim d2" aria-label="Sommaire de la page">
       <a href="#journee">Ta journée</a>
       <a href="#guides">Les guides</a>
@@ -74,12 +80,11 @@
       <a href="#compte">Aucun compte nécessaire</a>
       <a href="#details">En détail</a>
     </nav>
-  </div>
-</section>
+</div>
 
-<section class="bande blanche suite" id="journee" tabindex="-1">
+<section class="bande blanche suite" id="journee">
   <div class="centre">
-    <h2 class="anim">Ta journée</h2>
+    <h2 class="anim" tabindex="-1">Ta journée</h2>
     <p class="sous anim d1">En ouvrant l'application, tu tombes sur ta journée: comment tu te sens, ce qu'il y a à faire, la prochaine échéance.</p>
   </div>
   <div class="galerie">
@@ -98,11 +103,10 @@
       </figure>
     </div>
     <div class="fleches">
-      <button class="bascule-galerie" type="button" aria-pressed="false">
+      <button class="bascule-galerie" type="button" aria-pressed="false" aria-label="Mode sombre pour cette galerie">
         <svg class="soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
-        <span class="txt-sombre">Voir en sombre</span>
-        <span class="txt-clair">Voir en clair</span>
+        <span>Mode sombre</span>
       </button>
       <button class="fleche prec" type="button" aria-label="Écrans précédents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
       <button class="fleche suiv" type="button" aria-label="Écrans suivants"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -110,9 +114,9 @@
   </div>
 </section>
 
-<section class="bande" id="guides" tabindex="-1">
+<section class="bande" id="guides">
   <div class="centre">
-    <h2 class="anim">Les guides</h2>
+    <h2 class="anim" tabindex="-1">Les guides</h2>
     <p class="sous anim d1">Assurance maladie, bail, contrat de travail, impôts, chômage, arnaques en ligne, dettes. Dix-sept guides écrits pour la Suisse romande, avec la date de leur dernière vérification, et un petit quiz à la fin pour ancrer la lecture.</p>
   </div>
   <div class="galerie">
@@ -135,11 +139,10 @@
       </figure>
     </div>
     <div class="fleches">
-      <button class="bascule-galerie" type="button" aria-pressed="false">
+      <button class="bascule-galerie" type="button" aria-pressed="false" aria-label="Mode sombre pour cette galerie">
         <svg class="soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
-        <span class="txt-sombre">Voir en sombre</span>
-        <span class="txt-clair">Voir en clair</span>
+        <span>Mode sombre</span>
       </button>
       <button class="fleche prec" type="button" aria-label="Écrans précédents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
       <button class="fleche suiv" type="button" aria-label="Écrans suivants"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -147,9 +150,9 @@
   </div>
 </section>
 
-<section class="bande blanche" id="etapes" tabindex="-1">
+<section class="bande blanche" id="etapes">
   <div class="centre">
-    <h2 class="anim">Étape par étape</h2>
+    <h2 class="anim" tabindex="-1">Étape par étape</h2>
     <p class="sous anim d1">Trouver un premier appartement, c'est une suite de démarches dans un ordre précis. Ce qui est fait reste coché, tu peux t'arrêter et reprendre plus tard.</p>
   </div>
   <div class="galerie">
@@ -180,11 +183,10 @@
       </figure>
     </div>
     <div class="fleches">
-      <button class="bascule-galerie" type="button" aria-pressed="false">
+      <button class="bascule-galerie" type="button" aria-pressed="false" aria-label="Mode sombre pour cette galerie">
         <svg class="soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
-        <span class="txt-sombre">Voir en sombre</span>
-        <span class="txt-clair">Voir en clair</span>
+        <span>Mode sombre</span>
       </button>
       <button class="fleche prec" type="button" aria-label="Écrans précédents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
       <button class="fleche suiv" type="button" aria-label="Écrans suivants"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -192,9 +194,9 @@
   </div>
 </section>
 
-<section class="bande" id="argent" tabindex="-1">
+<section class="bande" id="argent">
   <div class="centre">
-    <h2 class="anim">L'argent</h2>
+    <h2 class="anim" tabindex="-1">L'argent</h2>
     <p class="sous anim d1">Aucune connexion bancaire. Tu saisis ce qui rentre et ce qui sort, l'application montre ce qu'il te reste et où l'argent part vraiment.</p>
   </div>
   <div class="galerie">
@@ -213,11 +215,10 @@
       </figure>
     </div>
     <div class="fleches">
-      <button class="bascule-galerie" type="button" aria-pressed="false">
+      <button class="bascule-galerie" type="button" aria-pressed="false" aria-label="Mode sombre pour cette galerie">
         <svg class="soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
-        <span class="txt-sombre">Voir en sombre</span>
-        <span class="txt-clair">Voir en clair</span>
+        <span>Mode sombre</span>
       </button>
       <button class="fleche prec" type="button" aria-label="Écrans précédents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
       <button class="fleche suiv" type="button" aria-label="Écrans suivants"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -225,9 +226,9 @@
   </div>
 </section>
 
-<section class="bande blanche" id="moral" tabindex="-1">
+<section class="bande blanche" id="moral">
   <div class="centre">
-    <h2 class="anim">Le moral</h2>
+    <h2 class="anim" tabindex="-1">Le moral</h2>
     <p class="sous anim d1">Noter comment tu vas en un geste. Quatre exercices courts qui fonctionnent sans connexion. Et un petit jeu, pour décrocher cinq minutes.</p>
   </div>
   <div class="galerie">
@@ -250,11 +251,10 @@
       </figure>
     </div>
     <div class="fleches">
-      <button class="bascule-galerie" type="button" aria-pressed="false">
+      <button class="bascule-galerie" type="button" aria-pressed="false" aria-label="Mode sombre pour cette galerie">
         <svg class="soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
-        <span class="txt-sombre">Voir en sombre</span>
-        <span class="txt-clair">Voir en clair</span>
+        <span>Mode sombre</span>
       </button>
       <button class="fleche prec" type="button" aria-label="Écrans précédents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
       <button class="fleche suiv" type="button" aria-label="Écrans suivants"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -262,9 +262,9 @@
   </div>
 </section>
 
-<section class="bande" id="travail" tabindex="-1">
+<section class="bande" id="travail">
   <div class="centre">
-    <h2 class="anim">Le travail</h2>
+    <h2 class="anim" tabindex="-1">Le travail</h2>
     <p class="sous anim d1">Un carnet de bord, une aide à la candidature, un calculateur qui traduit ton brut en net avec le détail des déductions, tes contacts et des questions d'entretien.</p>
   </div>
   <div class="galerie">
@@ -295,11 +295,10 @@
       </figure>
     </div>
     <div class="fleches">
-      <button class="bascule-galerie" type="button" aria-pressed="false">
+      <button class="bascule-galerie" type="button" aria-pressed="false" aria-label="Mode sombre pour cette galerie">
         <svg class="soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
-        <span class="txt-sombre">Voir en sombre</span>
-        <span class="txt-clair">Voir en clair</span>
+        <span>Mode sombre</span>
       </button>
       <button class="fleche prec" type="button" aria-label="Écrans précédents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
       <button class="fleche suiv" type="button" aria-label="Écrans suivants"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -307,9 +306,9 @@
   </div>
 </section>
 
-<section class="bande encre" id="aide" tabindex="-1">
+<section class="bande encre" id="aide">
   <div class="centre">
-    <h2 class="anim">Quand ça ne va pas</h2>
+    <h2 class="anim" tabindex="-1">Quand ça ne va pas</h2>
     <p class="sous anim d1">Un bouton d'urgence sur chaque écran, qui ouvre les numéros d'aide sans détour. L'application contient aussi un espace santé mentale et un module de réduction des risques, relus par des organismes spécialisés.</p>
     <p class="fin anim d2">Ces contenus orientent vers l'aide professionnelle. Ils ne la remplacent pas.</p>
     <div class="texte">
@@ -321,9 +320,9 @@
   </div>
 </section>
 
-<section class="bande" id="compte" tabindex="-1">
+<section class="bande" id="compte">
   <div class="centre">
-    <h2 class="anim">Aucun compte nécessaire</h2>
+    <h2 class="anim" tabindex="-1">Aucun compte nécessaire</h2>
     <p class="sous anim d1">Pas de compte, pas d'adresse e-mail, pas de numéro. Au premier lancement, tu choisis ton canton. Aucun nom, numéro ou adresse n'est demandé, et tu peux tout effacer quand tu veux.</p>
   </div>
   <div class="galerie">
@@ -342,11 +341,10 @@
       </figure>
     </div>
     <div class="fleches">
-      <button class="bascule-galerie" type="button" aria-pressed="false">
+      <button class="bascule-galerie" type="button" aria-pressed="false" aria-label="Mode sombre pour cette galerie">
         <svg class="soleil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="lune" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
-        <span class="txt-sombre">Voir en sombre</span>
-        <span class="txt-clair">Voir en clair</span>
+        <span>Mode sombre</span>
       </button>
       <button class="fleche prec" type="button" aria-label="Écrans précédents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
       <button class="fleche suiv" type="button" aria-label="Écrans suivants"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -354,9 +352,9 @@
   </div>
 </section>
 
-<section class="bande blanche" id="details" tabindex="-1">
+<section class="bande blanche" id="details">
   <div class="centre">
-    <h2 class="anim">En détail</h2>
+    <h2 class="anim" tabindex="-1">En détail</h2>
     <p class="sous anim d1">Ce qu'il faut savoir avant de l'installer.</p>
     <dl class="fiche">
       <div class="anim"><dt>Plateformes</dt><dd>iPhone à partir d'iOS 17 et Android à partir d'Android 8. Les deux versions sont en test.</dd></div>
@@ -366,7 +364,7 @@
       <div class="anim"><dt>Compte</dt><dd>Aucun. Ni adresse e-mail, ni numéro de téléphone, ni mot de passe.</dd></div>
       <div class="anim"><dt>Données</dt><dd>Stockées sur l'appareil. Aucune donnée n'est envoyée automatiquement à Tremplin. Sur iPhone, synchronisation possible via le compte iCloud personnel. Suppression totale disponible dans les réglages.</dd></div>
       <div class="anim"><dt>Accessibilité</dt><dd>Compatible VoiceOver et TalkBack, tailles de texte dynamiques, animations réduites respectées.</dd></div>
-      <div class="anim"><dt>Affichage</dt><dd>Thème clair ou sombre, ou selon le réglage du téléphone. Le mode sombre est chaud plutôt que bleuté, pour rester lisible tard le soir.</dd></div>
+      <div class="anim"><dt>Affichage</dt><dd>Thème clair ou sombre, ou selon le réglage du téléphone.</dd></div>
       <div class="anim"><dt>Publicité</dt><dd>Aucune. Aucun achat intégré, aucun abonnement.</dd></div>
       <div class="anim"><dt>Prix</dt><dd>Gratuite.</dd></div>
       <div class="anim"><dt>Confidentialité</dt><dd>Aucune donnée transmise au développeur. Le détail complet est sur la <a href="/confidentialite">page dédiée</a>.</dd></div>
@@ -377,7 +375,7 @@
 <section class="bande">
   <div class="centre">
     <h2 class="anim">Des informations vérifiées avant publication</h2>
-    <p class="sous anim d1">Une erreur de délai, de montant ou de contact peut avoir des conséquences concrètes pour un jeune. Chaque information est donc vérifiée auprès de sa source officielle avant publication.</p>
+    <p class="sous anim d1">Un délai, un montant, un numéro ou une adresse obsolète peut avoir des conséquences concrètes. Chaque information est donc vérifiée auprès d'une source officielle avant publication.</p>
     <div class="actions anim d2">
       <a class="bouton" href="/a-propos">Qui est derrière</a>
       <a class="bouton creux" href="mailto:tremplinapp@pm.me">Nous écrire</a>

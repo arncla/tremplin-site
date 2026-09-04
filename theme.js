@@ -16,10 +16,20 @@
  * retiré du site parce qu'il s'imposait au visiteur.
  */
 (function () {
-  document.documentElement.classList.add('js');
+  var racine = document.documentElement;
+  racine.classList.add('js');
+  /* Filet de securite. site.js pose la classe js-actif des le debut de son
+   * initialisation. Si elle manque encore quatre secondes plus tard, c'est que
+   * site.js n'est pas arrive (requete bloquee ou en echec) : on retire alors
+   * js, les contenus animes redeviennent visibles et la navigation reprend sa
+   * forme sans script. Dans le cas nominal site.js s'execute bien avant et ce
+   * minuteur ne change rien. */
+  setTimeout(function () {
+    if (!racine.classList.contains('js-actif')) racine.classList.remove('js');
+  }, 4000);
   try {
     if (localStorage.getItem('tremplin-theme') === 'sombre') {
-      document.documentElement.setAttribute('data-theme', 'sombre');
+      racine.setAttribute('data-theme', 'sombre');
     }
   } catch (e) {
     /* Stockage refusé, navigation privée verrouillée : on reste en clair. */
