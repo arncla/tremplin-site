@@ -2,10 +2,16 @@
 
 Site statique de l'app Tremplin: index, decouvrir, a-propos, confidentialite, 404, style.css, site.js, theme.js, fonts/, captures/. Hébergé sur GitHub Pages depuis le dépôt public arncla/tremplin-site, qui reste public. Chemin: /Users/arnaudclavien/App Pro/tremplin-site, branche main. Contexte: section site de TREMPLIN-CONTEXTE.md, dépôt iOS.
 
+## Arrêts et rapport
+
+Quand une étape ne demande pas mon avis, continue, et mets les notes d'état dans le même message que l'action suivante. Arrête-toi seulement si tu ne peux pas continuer sans moi, si aucune hypothèse de cause ne se confirme par une mesure, ou avant une action destructive ou hors de ce dépôt: suppression de données, force-push, réécriture d'historique, écriture dans un autre dépôt, action dans une console Apple ou Google. Un lot peut lever cette dernière limite par une autorisation explicite.
+Lot long: tiens la checklist dans .claude/TASKS.md, hors git, coche au fil de l'eau et ajoute ce que tu découvres.
+Chaque lot se termine par quatre rubriques, dans cet ordre: En attente de moi; Vérifié, avec la mesure; Non vérifié; Décisions prises, une ligne chacune.
+
 ## Git
 
 - Avant toute modification: `cd "/Users/arnaudclavien/App Pro/tremplin-site" && git add . && { git commit -m "backup avant [tâche]" || true; } && git push`
-- Commit final sélectif par chemins nommés, message en français. Le site n'évolue que par ce dépôt, jamais par l'interface GitHub. Édition chirurgicale, pas de réécriture de fichier.
+- Commit final sélectif par chemins nommés, message en français. Le site n'évolue que par ce dépôt, jamais par l'interface GitHub.
 
 ## Règles
 
@@ -19,9 +25,11 @@ Site statique de l'app Tremplin: index, decouvrir, a-propos, confidentialite, 40
 - Captures: JPEG publiés versionnés ici, jumelles clair et sombre, produits par le dépôt iOS; jamais retouchés ici.
 - Tout chiffre ou fait se vérifie sur source primaire avant publication et se signale à Arnaud pour validation.
 
-## Vérification
+## Méthode
 
-- Serveur local: `python3 -m http.server` ne résout pas les URL sans extension, contrairement à GitHub Pages: tester avec l'extension .html. Un test sans JavaScript servi sous une route décalée fait échouer les feuilles de style à chemin relatif.
-- Navigateur piloté: un onglet masqué fait expirer les clics et ne joue aucune animation de défilement; garder l'onglet visible pendant une mesure.
-- Accessibilité: axe-core sur les quatre pages, desktop et mobile, transitions neutralisées; une violation de contraste signalée pendant un fondu se contre-vérifie par calcul.
-- En ligne: mesurer au curl, code HTTP et Content-Type, pas à l'oeil.
+- Aucune correction avant que la cause soit établie par une mesure. Exception unique: un invariant de sécurité existant qu'un changement viole s'applique sans attendre la reproduction.
+- Aucun jugement visuel sur spécification, de mémoire ou sur un document: des pixels du rendu courant, dans les deux thèmes. Aucune valeur chiffrée transmise sans relevé dans le rendu réel.
+- Un résultat d'outil se lit d'abord par sa vraisemblance physique, durée et volume, avant son verdict. Un vérificateur prouve la couverture de son propre périmètre, sinon il ne prouve que son silence.
+- Une URL n'est vérifiée que si elle a été ouverte; annoncer une vérification qui n'a pas eu lieu est pire que ne rien annoncer. Un livrable annoncé dans un rapport se vérifie à l'existence.
+- Un lot qui conclut qu'il n'y a rien à corriger est réussi s'il prouve que sa mesure aurait vu le défaut.
+- Avant de servir le site en local, de piloter un navigateur, de lancer axe-core ou de mesurer la version en ligne: charger le skill verification-site.
