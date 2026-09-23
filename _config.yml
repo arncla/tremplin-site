@@ -1,0 +1,6 @@
+# Jekyll de GitHub Pages: fichiers suivis par git qui ne sont pas du contenu publie.
+# CNAME reste hors de cette liste: fichier du domaine personnalise, deja non servi en ligne.
+exclude:
+  - CLAUDE.md
+  - .claude
+  - .gitignore

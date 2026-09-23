@@ -4,13 +4,14 @@ Site statique de l'app Tremplin: index, decouvrir, a-propos, confidentialite, 40
 
 ## Arrêts et rapport
 
-Quand une étape ne demande pas mon avis, continue, et mets les notes d'état dans le même message que l'action suivante. Arrête-toi seulement si tu ne peux pas continuer sans moi, si aucune hypothèse de cause ne se confirme par une mesure, ou avant une action destructive ou hors de ce dépôt: suppression de données, force-push, réécriture d'historique, écriture dans un autre dépôt, action dans une console Apple ou Google. Un lot peut lever cette dernière limite par une autorisation explicite.
+Quand une étape ne demande pas mon avis, continue, et mets les notes d'état dans le même message que l'action suivante. Arrête-toi seulement si tu ne peux pas continuer sans moi, ou avant une action destructive ou hors de ce dépôt: suppression de données, force-push, réécriture d'historique, écriture dans un autre dépôt, écriture dans une console Apple ou Google (la lecture est permise). Un lot peut lever cette dernière limite par une autorisation explicite. Si aucune hypothèse de cause ne se confirme par une mesure, ne corrige rien: termine le lot, et le rapport dit si ta mesure aurait vu le défaut.
 Lot long: tiens la checklist dans .claude/TASKS.md, hors git, coche au fil de l'eau et ajoute ce que tu découvres.
 Chaque lot se termine par quatre rubriques, dans cet ordre: En attente de moi; Vérifié, avec la mesure; Non vérifié; Décisions prises, une ligne chacune.
 
 ## Git
 
 - Avant toute modification: `cd "/Users/arnaudclavien/App Pro/tremplin-site" && git add . && { git commit -m "backup avant [tâche]" || true; } && git push`
+- Cette ligne pousse tout l'arbre: un travail en attente de validation vit sur une branche, jamais non commité sur main.
 - Commit final sélectif par chemins nommés, message en français. Le site n'évolue que par ce dépôt, jamais par l'interface GitHub.
 
 ## Règles
@@ -27,7 +28,7 @@ Chaque lot se termine par quatre rubriques, dans cet ordre: En attente de moi; V
 
 ## Méthode
 
-- Aucune correction avant que la cause soit établie par une mesure. Exception unique: un invariant de sécurité existant qu'un changement viole s'applique sans attendre la reproduction.
+- Aucune correction avant que la cause soit établie par une mesure. Exception unique: un invariant de sécurité existant qu'un changement viole s'applique sans attendre la reproduction. Un invariant de sécurité violé par un changement du lot se corrige dans le lot, sans attendre la reproduction. Une violation préexistante hors périmètre se signale en tête de « En attente de moi » et ne se corrige pas.
 - Aucun jugement visuel sur spécification, de mémoire ou sur un document: des pixels du rendu courant, dans les deux thèmes. Aucune valeur chiffrée transmise sans relevé dans le rendu réel.
 - Un résultat d'outil se lit d'abord par sa vraisemblance physique, durée et volume, avant son verdict. Un vérificateur prouve la couverture de son propre périmètre, sinon il ne prouve que son silence.
 - Une URL n'est vérifiée que si elle a été ouverte; annoncer une vérification qui n'a pas eu lieu est pire que ne rien annoncer. Un livrable annoncé dans un rapport se vérifie à l'existence.
