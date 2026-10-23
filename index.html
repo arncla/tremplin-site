@@ -17,10 +17,12 @@
    "@id": "https://tremplinapp.ch/#site",
    "url": "https://tremplinapp.ch/",
    "name": "Tremplin",
-   "inLanguage": "fr-CH"
+   "inLanguage": "fr-CH",
+   "publisher": {"@id": "https://tremplinapp.ch/a-propos#arnaud-clavien"}
   },
   {
    "@type": "MobileApplication",
+   "@id": "https://tremplinapp.ch/#app",
    "name": "Tremplin",
    "operatingSystem": "iOS, Android",
    "applicationCategory": "EducationalApplication",
@@ -33,11 +35,19 @@
    },
    "url": "https://tremplinapp.ch/",
    "description": "Application gratuite pour les 15 à 25 ans en Suisse romande: guides pratiques, budget, travail et bien-être. Sans publicité, sans compte, aucune donnée envoyée automatiquement.",
-   "author": {
-    "@type": "Person",
-    "name": "Arnaud Clavien",
-    "url": "https://tremplinapp.ch/a-propos"
-   }
+   "author": {"@id": "https://tremplinapp.ch/a-propos#arnaud-clavien"}
+  },
+  {
+   "@type": "Person",
+   "@id": "https://tremplinapp.ch/a-propos#arnaud-clavien",
+   "name": "Arnaud Clavien",
+   "givenName": "Arnaud",
+   "familyName": "Clavien",
+   "url": "https://tremplinapp.ch/a-propos",
+   "sameAs": [
+    "https://www.linkedin.com/in/arnaud-clavien-9b1a82428/",
+    "https://grainedeculture.ch/a-propos"
+   ]
   }
  ]
 }
@@ -117,7 +127,7 @@
 <link rel="canonical" href="https://tremplinapp.ch/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tremplin">
-<meta property="og:title" content="Tremplin">
+<meta property="og:title" content="Tremplin | L'app qui accompagne les 15 à 25 ans en Suisse romande">
 <meta property="og:description" content="Tout ce qu'on ne t'a jamais expliqué. Application gratuite pour les 15 à 25 ans en Suisse romande.">
 <meta property="og:url" content="https://tremplinapp.ch/">
 <meta property="og:locale" content="fr_CH">
