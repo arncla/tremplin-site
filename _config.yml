@@ -2,3 +2,4 @@
 # CNAME reste hors de cette liste: fichier du domaine personnalise, deja non servi en ligne.
 exclude:
   - .gitignore
+  - .corbeille
