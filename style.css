@@ -565,8 +565,16 @@ h2[tabindex="-1"]:focus-visible{outline:2px solid var(--accent); outline-offset:
    du theme, la regle du theme clair ne doit donc pas la figer. */
 :root[data-theme="sombre"] .bande.encre a{color:var(--accent)}
 :root[data-theme="sombre"] footer a{color:var(--clair-faible)}
-/* Le chassis de telephone reste plus sombre que la page, sinon il disparait. */
-:root[data-theme="sombre"] .tel{background:#1A1512; border-color:rgba(244,236,224,.18)}
+/* Le chassis de telephone reste plus sombre que la page, sinon il disparait.
+   #1A1512 etait aussi la couleur de la page : contraste mesure 1,00:1 avec la
+   bande du heros et 1,12:1 avec la bande blanche, donc aucun bord. Le chassis
+   passe sous la page, et un lisere clair interne (box-shadow inset, il ne
+   deborde pas du chassis) dessine le contour sur n'importe quel fond.
+   border-color n'avait aucun effet : .tel n'a pas de bordure. */
+:root[data-theme="sombre"] .tel{
+  background:#0E0B09;
+  box-shadow:inset 0 0 0 1px rgba(244,236,224,.4), 0 18px 44px var(--ombre);
+}
 
 /* Interrupteur de theme. Place dans le DOM entre le logo et le burger, hors
    du menu : margin-left:auto le pousse a droite, colle au menu sur ordinateur
