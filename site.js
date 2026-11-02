@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function(){
       bascule.setAttribute('aria-pressed', sombre ? 'true' : 'false');
     }
     var couleur = document.querySelector('meta[name="theme-color"]');
-    if(couleur) couleur.setAttribute('content', sombre ? '#1A1512' : '#FBF6EE');
+    if(couleur) couleur.setAttribute('content', sombre ? '#121316' : '#F2F2F5');
     basculerCaptures(sombre, document, immediat);
     galeries.forEach(function(g){ delete g.dataset.manuel; marquerGalerie(g, sombre); });
     if(memoriser){
@@ -165,22 +165,27 @@ document.addEventListener('DOMContentLoaded', function(){
   // Ce reglage n'est PAS memorise entre deux visites: il vit le temps de la
   // page. Seul le theme global est persiste, donc aucun stockage nouveau n'est
   // introduit et la page de confidentialite reste exacte.
+  //
+  // Le reglage passe par un controle segmente Clair et Sombre: deux boutons,
+  // dont aria-pressed porte l'etat, un seul enfonce a la fois.
   var galeries = [].slice.call(document.querySelectorAll('.galerie'));
 
   function marquerGalerie(galerie, sombre){
     galerie.dataset.galerieTheme = sombre ? 'sombre' : 'clair';
-    var bouton = galerie.querySelector('.bascule-galerie');
-    if(bouton) bouton.setAttribute('aria-pressed', sombre ? 'true' : 'false');
+    galerie.querySelectorAll('.segment button').forEach(function(bouton){
+      var actif = (bouton.dataset.galerieTheme === 'sombre') === sombre;
+      bouton.setAttribute('aria-pressed', actif ? 'true' : 'false');
+    });
   }
 
   galeries.forEach(function(galerie){
-    var bouton = galerie.querySelector('.bascule-galerie');
-    if(!bouton) return;
-    bouton.addEventListener('click', function(){
-      var sombre = galerie.dataset.galerieTheme !== 'sombre';
-      galerie.dataset.manuel = '1';
-      marquerGalerie(galerie, sombre);
-      basculerCaptures(sombre, galerie);
+    galerie.querySelectorAll('.segment button').forEach(function(bouton){
+      bouton.addEventListener('click', function(){
+        var sombre = bouton.dataset.galerieTheme === 'sombre';
+        galerie.dataset.manuel = '1';
+        marquerGalerie(galerie, sombre);
+        basculerCaptures(sombre, galerie);
+      });
     });
   });
 
@@ -267,11 +272,13 @@ document.addEventListener('DOMContentLoaded', function(){
       var max = piste.scrollWidth - piste.clientWidth - 2;
       prec.disabled = piste.scrollLeft <= 2;
       suiv.disabled = piste.scrollLeft >= max;
-      // On masque les deux fleches, pas la rangee: elle porte desormais le
-      // bouton de bascule, qui doit rester visible meme sans defilement.
+      // On masque les deux fleches, pas la rangee: sur l'accueil elle porte
+      // aussi le controle Clair et Sombre et le bouton vers l'application, qui
+      // restent visibles meme sans defilement. hidden les retire du flux, pour
+      // que la rangee reste centree.
       var inutile = max <= 2;
-      prec.style.visibility = inutile ? 'hidden' : 'visible';
-      suiv.style.visibility = inutile ? 'hidden' : 'visible';
+      prec.hidden = inutile;
+      suiv.hidden = inutile;
     }
     prec.addEventListener('click', function(){
       piste.scrollBy({ left: -pas(), behavior: doux ? 'auto' : 'smooth' });
