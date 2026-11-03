@@ -155,10 +155,20 @@ h2{font-size:clamp(36px, 4.4vw, 52px); max-width:15ch}
 
 /* ── Téléphone ─────────────────────────────────────────────────────────── */
 .tel{
-  position:relative; width:290px; aspect-ratio:600/1304; border-radius:46px; background:var(--chassis);
-  padding:9px; box-shadow:var(--ombre-tel), inset 0 0 0 1px var(--lisere);
+  /* Le châssis s'adapte à la capture, jamais l'inverse: l'image garde son
+     rapport naturel (600/1304), sans rognage. Cadre de 3 % et rayon d'écran de
+     12 % de la largeur du téléphone, soit un rendu identique à toutes les
+     tailles. Le cadre est la marge de l'image (unités du conteneur .tel); le
+     rayon extérieur, 15 % (écran + cadre), est elliptique car un pourcentage
+     vertical se rapporte à la hauteur: 15 % / (15 / 210,293) = 7,133 %. */
+  position:relative; width:290px; display:grid; container-type:inline-size;
+  border-radius:15% / 7.133%; background:var(--chassis);
+  box-shadow:var(--ombre-tel), inset 0 0 0 1px var(--lisere);
 }
-.tel img{width:100%; height:100%; border-radius:38px; display:block; object-fit:cover}
+.tel img{
+  display:block; box-sizing:border-box; margin:3cqw; width:calc(100% - 6cqw); height:auto;
+  aspect-ratio:600/1304; border-radius:12cqw;
+}
 :root[data-theme="sombre"] .tel{box-shadow:var(--ombre-tel), inset 0 0 0 1.5px var(--lisere)}
 
 /* ── Galeries de captures ──────────────────────────────────────────────── */
@@ -215,10 +225,8 @@ figcaption b{display:flex; align-items:center; gap:8px; color:var(--texte); font
 .carte h3{font-size:22px; letter-spacing:-.015em}
 .carte p{color:var(--texte2); margin-top:6px; font-size:17px}
 .paire{display:flex; gap:26px; justify-content:center}
-.paire .tel{width:214px; border-radius:36px; padding:7px}
-.paire .tel img{border-radius:30px}
-.paire .tel.solo{width:290px; border-radius:46px; padding:9px}
-.paire .tel.solo img{border-radius:38px}
+.paire .tel{width:214px}
+.paire .tel.solo{width:290px}
 .deux .aide{margin-top:40px}
 .note{font-size:15px; color:var(--texte2); margin-top:28px; display:flex; gap:10px; align-items:center}
 .note .ic{color:var(--accent); font-size:22px}
