@@ -1,600 +1,397 @@
-/* Polices servies depuis ce site, aucune requete vers un domaine tiers.
-   Fraunces et Be Vietnam Pro, SIL Open Font License 1.1.
-   Textes de licence: fonts/OFL-Fraunces.txt et fonts/OFL-BeVietnamPro.txt.
-   Fraunces est conservee en variable pour garder l'axe optique opsz, dont le
-   site depend: titres a grande taille optique, logo de la barre a petite. */
-@font-face{
-  font-family:"Fraunces";
-  src:url("fonts/Fraunces-var.woff2") format("woff2-variations"),
-      url("fonts/Fraunces-var.woff2") format("woff2");
-  font-weight:600;
-  font-style:normal;
-  font-display:swap;
-  unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-    U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-    U+2193, U+2212, U+2215, U+FEFF, U+FFFD,
-    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
-    U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face{
-  font-family:"Be Vietnam Pro";
-  src:url("fonts/BeVietnamPro-Regular.woff2") format("woff2");
-  font-weight:400;
-  font-style:normal;
-  font-display:swap;
-  unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-    U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-    U+2193, U+2212, U+2215, U+FEFF, U+FFFD,
-    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
-    U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face{
-  font-family:"Be Vietnam Pro";
-  src:url("fonts/BeVietnamPro-Medium.woff2") format("woff2");
-  font-weight:500;
-  font-style:normal;
-  font-display:swap;
-  unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-    U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-    U+2193, U+2212, U+2215, U+FEFF, U+FFFD,
-    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
-    U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face{
-  font-family:"Be Vietnam Pro";
-  src:url("fonts/BeVietnamPro-SemiBold.woff2") format("woff2");
-  font-weight:600;
-  font-style:normal;
-  font-display:swap;
-  unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-    U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
-    U+2193, U+2212, U+2215, U+FEFF, U+FFFD,
-    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
-    U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
+/* Charte Menthe de l'application, d'après la maquette validée le 2 novembre 2026.
+   Polices servies depuis ce site, aucune requête vers un domaine tiers.
+   Nunito, SIL Open Font License 1.1, texte de licence: fonts/OFL.txt.
+   Sous-ensembles woff2 tirés des TTF du dépôt iOS, limités aux caractères des pages.
+   Icônes: Material Symbols Rounded, Apache 2.0, intégrées en SVG dans les pages.
+   Texte de licence: icones/Apache-2.0.txt. */
+@font-face{font-family:"Nunito"; src:url("fonts/Nunito-Regular.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:swap}
+@font-face{font-family:"Nunito"; src:url("fonts/Nunito-SemiBold.woff2") format("woff2"); font-weight:600; font-style:normal; font-display:swap}
+@font-face{font-family:"Nunito"; src:url("fonts/Nunito-Bold.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:swap}
+@font-face{font-family:"Nunito"; src:url("fonts/Nunito-ExtraBold.woff2") format("woff2"); font-weight:800; font-style:normal; font-display:swap}
 
+/* Rôles de couleur. Le défaut reste clair: le sombre ne s'applique qu'avec
+   data-theme="sombre" sur la racine, posé par le choix explicite du visiteur.
+   La menthe n'est jamais un texte, un trait ou un anneau sur fond clair: elle
+   n'existe qu'en aplat, encre dessus. Liens, glyphes et anneau passent par
+   --accent, vert foncé en clair et menthe en sombre. */
 :root{
   color-scheme:light;
-  --ivoire:#FBF6EE;
-  --blanc:#FFFFFF;
-  --encre:#1E1B26;
-  --texte:#4A4553;
-  --faible:#6A6577;
-  --corail:#E85A38;
-  --accent:#BC3F1E;
-  --trait:rgba(30,27,38,.12);
-  /* Roles separes de --encre, qui servait a la fois d'encre de texte et de fond. */
-  --fond-encre:#1E1B26;      /* bandes sombres, pied de page, chassis de telephone */
-  --sur-corail:#1E1B26;      /* texte pose sur un aplat corail, fixe dans les deux themes */
-  --voile:rgba(30,27,38,.07);
-  --voile-fort:rgba(30,27,38,.14);
-  --ombre:rgba(30,27,38,.16);
-  --fond-barre:rgba(251,246,238,.78);   /* barre collante, translucide */
-  --clair:#F6F0E6;
-  --clair-faible:rgba(246,240,230,.7);
-  --serif:"Fraunces", Georgia, serif;
-  --sans:"Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --fond:#F2F2F5;
+  --surface:#FFFFFF;
+  --eleve:#E6E8EE;
+  --texte:#111318;
+  --texte2:#4A4F5A;
+  --menthe:#2EE6A6;
+  --encre:#111318;           /* libellé posé sur la menthe, fixe dans les deux thèmes */
+  --accent:#0A6B4C;          /* liens, glyphes, anneau de focus */
+  --douce:#D5F7EA;           /* pastille */
+  --sur-douce:#0A6B4C;       /* glyphe et texte de pastille */
+  --sos:#B4282B;             /* aplat SOS, blanc dessus */
+  --bord:rgba(17,19,24,.08);
+  --chassis:#111318;
+  --lisere:#111318;
+  --ombre-tel:0 24px 48px -20px rgba(17,19,24,.28);
+  --bande-encre:#111318;
+  --bande-texte:#F4F5F7;
+  --bande-texte2:#A7ADB8;
+  --surligne:#2EE6A6;
+  --logo-tuile:#2EE6A6;
+  --logo-glyphe:#111318;
+  --fond-barre:color-mix(in srgb, #F2F2F5 92%, transparent);
 }
+:root[data-theme="sombre"]{
+  color-scheme:dark;
+  --fond:#121316;
+  --surface:#1C1E24;
+  --eleve:#2A2E37;
+  --texte:#F4F5F7;
+  --texte2:#A7ADB8;
+  --accent:#2EE6A6;
+  --douce:#123D30;
+  --sur-douce:#5EF0B8;
+  --sos:#D23A3A;
+  --bord:rgba(244,245,247,.08);
+  /* Le châssis 2A2E37 ne se détache pas du fond (1,36:1). Le liseré interne
+     porte le contour: 6B7180, 3,80:1 sur le fond et 3,41:1 sur la surface. */
+  --chassis:#2A2E37;
+  --lisere:#6B7180;
+  --ombre-tel:0 24px 48px -20px rgba(0,0,0,.6);
+  --bande-encre:#1C1E24;
+  --surligne:#123D30;
+  --logo-tuile:#121316;
+  --logo-glyphe:#2EE6A6;
+  --fond-barre:color-mix(in srgb, #121316 92%, transparent);
+}
+
 *{box-sizing:border-box}
-html{scroll-behavior:smooth; scroll-padding-top:64px}
+[hidden]{display:none!important}
+html{background:var(--fond); scroll-behavior:smooth; scroll-padding-top:76px}
 body{
-  margin:0;
-  background:var(--ivoire);
-  color:var(--texte);
-  font-family:var(--sans);
-  font-size:17px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-  overflow-x:hidden;
+  margin:0; font-family:"Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size:18px; line-height:1.55; color:var(--texte); background:var(--fond);
+  -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%;
 }
-img,svg{display:block}
-img{max-width:100%; height:auto}
-a{color:var(--accent)}
-:focus-visible{outline:2px solid var(--accent); outline-offset:4px; border-radius:8px}
-::selection{background:rgba(232,90,56,.2)}
-h1,h2,h3{font-family:var(--serif); color:var(--encre); font-weight:600; margin:0}
-h1,h2{letter-spacing:-.035em; line-height:.98}
-p{margin:0}
+h1,h2,h3{margin:0; font-weight:800; letter-spacing:-.022em; line-height:1.08; color:var(--texte)}
+p,ul,ol,dl,dd,figure{margin:0}
+img{max-width:100%}
+a{color:var(--accent); font-weight:700; text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:6px}
+.ic{width:1em; height:1em; fill:currentColor; flex:none; display:block}
 
-/* Barre de navigation */
-.barre{
-  position:sticky; top:0; z-index:50;
-  background:var(--fond-barre);
-  backdrop-filter:saturate(180%) blur(20px);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid var(--trait);
+.wrap{max-width:1160px; margin:0 auto; padding:0 32px}
+
+/* Lien d'évitement */
+.evite{
+  position:absolute; left:-9999px; top:8px; z-index:100;
+  background:var(--surface); color:var(--texte); padding:12px 18px; border-radius:999px;
 }
-.barre-in{
-  max-width:1100px; margin:0 auto; padding:0 22px;
-  height:52px; display:flex; align-items:center; justify-content:space-between; gap:20px;
+.evite:focus{left:12px}
+
+/* ── Barre ─────────────────────────────────────────────────────────────── */
+.barre{position:sticky; top:0; z-index:50; background:var(--fond-barre); border-bottom:1px solid var(--bord)}
+.barre-in{max-width:1160px; margin:0 auto; padding:0 32px; height:68px; display:flex; align-items:center; gap:20px}
+.logo{display:flex; align-items:center; gap:10px; color:var(--texte); text-decoration:none; font-weight:800; font-size:21px; letter-spacing:-.01em}
+.logo svg{width:34px; height:34px; border-radius:9px; flex:none}
+.logo .tuile{fill:var(--logo-tuile)}
+.logo .glyphe{fill:var(--logo-glyphe)}
+.logo .point{fill:#FFFFFF}
+.barre nav{display:flex; align-items:center; gap:26px; margin-left:auto}
+.barre nav a{color:var(--texte); text-decoration:none; font-weight:600; font-size:16px}
+.barre nav a:hover,
+.barre nav a[aria-current="page"]{text-decoration:underline; text-decoration-color:var(--accent)}
+.barre nav .contact{display:none}
+.bascule,.burger{
+  width:44px; height:44px; border-radius:50%; border:0; background:var(--eleve); color:var(--texte);
+  display:none; place-items:center; font-size:20px; cursor:pointer; padding:0; flex:none;
 }
-.logo{display:flex; align-items:center; gap:9px; text-decoration:none; color:var(--encre)}
-.logo svg{width:30px; height:24px}
-.logo span{font-family:var(--serif); font-weight:600; font-size:19px; letter-spacing:-.01em}
-.barre nav{display:flex; gap:22px}
-.barre nav a{color:var(--texte); text-decoration:none; font-size:14px; font-weight:500}
-.barre nav a:hover{color:var(--accent)}
-@media(max-width:520px){ .barre nav{gap:16px} .barre nav a{font-size:13px} }
+.js .bascule{display:grid}
+.contact-bureau{flex:none}
 
-/* Bandes */
-.bande{padding:clamp(88px,13vw,164px) 22px}
-.bande.blanche{background:var(--blanc)}
-.bande.encre{background:var(--fond-encre)}
-.bande.encre h2,.bande.encre h3{color:var(--clair)}
-.bande.encre .sous,.bande.encre .fin,.bande.encre p{color:var(--clair-faible)}
-.bande.courte{padding-top:clamp(48px,7vw,80px); padding-bottom:clamp(48px,7vw,80px)}
-
-.centre{max-width:860px; margin:0 auto; text-align:center}
-.texte{max-width:680px; margin:0 auto}
-
-h1{font-size:clamp(58px,11.5vw,116px)}
-h2{font-size:clamp(32px,5.6vw,62px)}
-h3{font-size:20px; letter-spacing:-.015em; line-height:1.2}
-.sous{font-size:clamp(18px,2.3vw,24px); color:var(--texte); margin-top:24px; line-height:1.42; letter-spacing:-.01em}
-.fin{font-size:14.5px; color:var(--faible); margin-top:22px}
-.corps{font-size:17.5px; margin-top:22px; line-height:1.68}
-
-/* Boutons */
-.actions{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:42px}
-.texte .actions{justify-content:flex-start}
+/* ── Boutons ───────────────────────────────────────────────────────────── */
 .bouton{
-  display:inline-flex; align-items:center; gap:9px;
-  font-weight:600; font-size:16px; text-decoration:none;
-  color:var(--sur-corail); background:var(--corail);
-  padding:14px 28px; border-radius:999px;
-  transition:transform .25s ease, opacity .25s ease;
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  min-height:48px; padding:14px 24px; border-radius:999px; border:0;
+  font-family:inherit; font-weight:800; font-size:17px; line-height:1.2; text-decoration:none;
+  background:var(--menthe); color:var(--encre); cursor:pointer;
 }
-.bouton:hover{opacity:.92; transform:translateY(-2px)}
-.bouton.creux{color:var(--encre); background:none; border:1px solid var(--trait)}
-.bande.encre .bouton.creux{color:var(--clair); border-color:rgba(246,240,230,.3)}
-.bouton.creux:hover{border-color:var(--corail); color:var(--accent)}
-.bande.encre .bouton.creux:hover{color:var(--corail)}
-.bouton svg{width:18px; height:18px}
-.retour{display:inline-flex; align-items:center; gap:7px; color:var(--faible); text-decoration:none; font-weight:600; font-size:14px}
-.retour:hover{color:var(--accent)}
-.retour svg{width:15px; height:15px}
+.bouton .ic{font-size:20px}
+.bouton.creux{background:var(--surface); color:var(--texte); box-shadow:inset 0 0 0 1.5px var(--eleve)}
+.bouton.petit{min-height:44px; padding:10px 18px; font-size:16px}
+.bouton:hover{filter:brightness(.96)}
+.actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:34px}
 
-/* Appareil */
+/* ── Bandes ────────────────────────────────────────────────────────────── */
+.bande{padding:112px 0}
+.blanche{background:var(--surface)}
+h2{font-size:clamp(36px, 4.4vw, 52px); max-width:15ch}
+.centre{text-align:center}
+.centre h2,.centre .sous{margin-left:auto; margin-right:auto}
+.centre h2{max-width:22ch}
+.centre .actions{justify-content:center}
+.sous{font-size:22px; color:var(--texte2); max-width:40ch; margin-top:18px; line-height:1.45}
+.fin{color:var(--texte2); font-size:15px; margin-top:22px; max-width:46ch}
+.centre .fin{margin-left:auto; margin-right:auto}
+.lien-suite{margin-top:18px; font-size:17px}
+
+/* ── Héros ─────────────────────────────────────────────────────────────── */
+.hero{padding:72px 0 96px; overflow:hidden}
+.hero-grille{display:grid; grid-template-columns:1.08fr .92fr; gap:40px; align-items:center}
+.statut{
+  display:inline-flex; align-items:center; gap:8px; background:var(--douce); color:var(--sur-douce);
+  font-weight:800; font-size:14px; letter-spacing:.02em; border-radius:999px; padding:7px 14px 7px 10px;
+}
+.statut i{width:8px; height:8px; border-radius:50%; background:var(--sur-douce)}
+.hero h1{font-size:clamp(68px, 9vw, 112px); letter-spacing:-.04em; margin-top:22px; line-height:.95}
+.accroche{font-size:clamp(26px, 2.6vw, 34px); font-weight:800; letter-spacing:-.02em; margin-top:18px; line-height:1.15}
+.surligne{
+  background:linear-gradient(transparent 62%, var(--surligne) 62%, var(--surligne) 92%, transparent 92%);
+  padding:0 .06em; -webkit-box-decoration-break:clone; box-decoration-break:clone;
+}
+:root[data-theme="sombre"] .surligne{background:var(--surligne); border-radius:.18em; padding:0 .14em}
+.puces{list-style:none; padding:0; margin-top:30px; display:grid; gap:12px; font-size:18px}
+.puces li{display:flex; gap:12px; align-items:flex-start}
+.puces .ic{font-size:24px; color:var(--accent); margin-top:1px}
+.scene{display:grid; place-items:center; min-height:640px}
+
+/* ── Téléphone ─────────────────────────────────────────────────────────── */
 .tel{
-  width:100%;
-  background:var(--fond-encre);
-  padding:8px;
-  border-radius:40px;
-  box-shadow:0 18px 44px var(--ombre);
+  position:relative; width:290px; aspect-ratio:600/1304; border-radius:46px; background:var(--chassis);
+  padding:9px; box-shadow:var(--ombre-tel), inset 0 0 0 1px var(--lisere);
 }
-.bande.encre .tel{background:#3A3440; box-shadow:0 18px 44px rgba(0,0,0,.4)}
-.tel img{width:100%; aspect-ratio:600/1304; object-fit:cover; border-radius:33px; display:block}
-.solo{width:min(272px,66vw); margin:56px auto 0}
-.paire{display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin-top:56px}
-.paire .tel{width:min(250px,62vw)}
+.tel img{width:100%; height:100%; border-radius:38px; display:block; object-fit:cover}
+:root[data-theme="sombre"] .tel{box-shadow:var(--ombre-tel), inset 0 0 0 1.5px var(--lisere)}
 
-/* Carrousel */
-.galerie{max-width:1180px; margin:56px auto 0}
+/* ── Galeries de captures ──────────────────────────────────────────────── */
 .piste{
-  display:flex; gap:22px;
-  overflow-x:auto; scroll-snap-type:x mandatory;
-  padding:4px 22px 18px; margin:0 -22px;
-  scrollbar-width:none;
+  display:flex; gap:22px; overflow-x:auto; overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory; scrollbar-width:thin; padding:4px 4px 18px; margin:0 -4px;
+  /* Sans cette marge d'accroche, la piste se calait à 8 px au chargement
+     (marge intérieure et écran encore réduit par l'apparition): la flèche
+     précédente restait active alors qu'il n'y avait rien avant. */
+  scroll-padding-inline:4px;
 }
-.piste::-webkit-scrollbar{display:none}
-@media(min-width:1180px){ .piste{justify-content:center; justify-content:safe center} }
-.vue{flex:0 0 204px; scroll-snap-align:center; margin:0}
-.vue .tel{border-radius:34px; padding:7px}
-.vue .tel img{border-radius:28px}
-.vue figcaption{margin-top:16px; font-size:14.5px; color:var(--faible); line-height:1.45}
-.vue figcaption b{display:block; color:var(--encre); font-weight:600; font-size:15.5px; margin-bottom:2px}
-.bande.encre .vue figcaption{color:var(--clair-faible)}
-.bande.encre .vue figcaption b{color:var(--clair)}
-.fleches{display:flex; gap:10px; justify-content:flex-end; padding:0 22px; margin-top:6px}
+.piste:focus-visible{outline-offset:2px; border-radius:16px}
+.vue{flex:0 0 auto; display:flex; flex-direction:column; align-items:center; scroll-snap-align:start}
+.vue .tel{width:100%}
+figcaption{margin-top:20px; font-size:16px; color:var(--texte2); line-height:1.45; align-self:stretch; text-align:left}
+figcaption b{display:flex; align-items:center; gap:8px; color:var(--texte); font-size:18px; margin-bottom:4px}
+.pastille{
+  width:36px; height:36px; border-radius:10px; background:var(--douce); color:var(--sur-douce);
+  display:grid; place-items:center; font-size:22px; flex:none;
+}
+.pastille.g{width:48px; height:48px; border-radius:13px; font-size:28px}
+
+/* Accueil, cinq espaces: les cinq écrans tiennent sur une ligne en bureau. */
+.galerie.cinq .piste{margin-top:64px}
+.galerie.cinq .vue{flex:1 1 0; min-width:0}
+.bas{display:flex; justify-content:center; gap:16px; align-items:center; flex-wrap:wrap; margin-top:40px}
+
+/* Contrôle segmenté Clair et Sombre: même rôle que l'ancien bouton de
+   galerie, deux boutons dont aria-pressed porte l'état. Visible avec script
+   seulement, comme avant. */
+.segment{display:none; background:var(--eleve); border-radius:999px; padding:4px; gap:2px}
+.js .segment{display:inline-flex}
+.segment button{
+  display:flex; align-items:center; gap:6px; min-height:40px; padding:8px 18px; border-radius:999px; border:0;
+  background:transparent; color:var(--texte); font-family:inherit; font-weight:700; font-size:15px; cursor:pointer;
+}
+.segment button .ic{font-size:18px}
+.segment button[aria-pressed="true"]{background:var(--surface); box-shadow:0 1px 3px rgba(17,19,24,.12)}
+.fleches{display:flex; gap:10px}
+.rubrique .fleches{margin-top:8px}
 .fleche{
-  width:38px; height:38px; border-radius:50%;
-  border:none; background:var(--voile); color:var(--encre);
-  display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
-  transition:background .2s ease;
+  width:44px; height:44px; border-radius:50%; border:0; background:var(--eleve); color:var(--texte);
+  display:grid; place-items:center; font-size:24px; cursor:pointer; padding:0;
 }
-.fleche:hover{background:var(--voile-fort)}
-.fleche svg{width:17px; height:17px}
-.fleche[disabled]{opacity:.32; cursor:default}
-.bande.encre .fleche{background:rgba(246,240,230,.14); color:var(--clair)}
-.bande.encre .fleche:hover{background:rgba(246,240,230,.24)}
-@media(max-width:640px){ .fleches .fleche{display:none} }
+.fleche:disabled{opacity:.4; cursor:default}
+.fleche.prec .ic{transform:rotate(90deg)}
+.fleche.suiv .ic{transform:rotate(-90deg)}
 
-/* Bascule de theme propre a une galerie.
-   Libelle stable, "Mode sombre" : l'etat est porte par aria-pressed et par le
-   pictogramme, soleil en clair, lune en sombre, que la CSS choisit d'apres
-   l'attribut de la galerie. Aucun texte ne change au clic. */
-.bascule-galerie{
-  display:none; align-items:center; gap:8px;
-  min-height:44px; padding:0 15px; border-radius:999px;
-  border:none; background:var(--voile); color:var(--encre);
-  font-family:inherit; font-size:14px; font-weight:500; cursor:pointer;
-  margin-right:auto;   /* colle le bouton a gauche, les fleches restent a droite */
-  transition:background .2s ease;
+/* ── Pour qui, cantons, aide ───────────────────────────────────────────── */
+.deux{display:grid; grid-template-columns:.9fr 1.1fr; gap:72px; align-items:start}
+.deux.milieu{align-items:center}
+.cartes{display:grid; gap:16px}
+.carte{background:var(--surface); border:1px solid var(--bord); border-radius:20px; padding:24px 26px; display:flex; gap:18px; align-items:flex-start}
+.carte h3{font-size:22px; letter-spacing:-.015em}
+.carte p{color:var(--texte2); margin-top:6px; font-size:17px}
+.paire{display:flex; gap:26px; justify-content:center}
+.paire .tel{width:214px; border-radius:36px; padding:7px}
+.paire .tel img{border-radius:30px}
+.paire .tel.solo{width:290px; border-radius:46px; padding:9px}
+.paire .tel.solo img{border-radius:38px}
+.deux .aide{margin-top:40px}
+.note{font-size:15px; color:var(--texte2); margin-top:28px; display:flex; gap:10px; align-items:center}
+.note .ic{color:var(--accent); font-size:22px}
+.aide{background:var(--surface); border:1px solid var(--bord); border-radius:24px; padding:32px; max-width:560px}
+.blanche .aide{background:var(--fond)}
+.sos{
+  display:inline-flex; align-items:center; justify-content:center; background:var(--sos); color:#FFFFFF;
+  font-weight:800; border-radius:999px; padding:6px 14px; font-size:16px; letter-spacing:.02em;
 }
-.js .bascule-galerie{display:inline-flex}
-.bascule-galerie:hover{background:var(--voile-fort)}
-.bascule-galerie svg{width:16px; height:16px; flex:none}
-.bascule-galerie .lune{display:none}
-.galerie[data-galerie-theme="sombre"] .bascule-galerie .soleil{display:none}
-.galerie[data-galerie-theme="sombre"] .bascule-galerie .lune{display:block}
-.bande.encre .bascule-galerie{background:rgba(246,240,230,.14); color:var(--clair)}
-.bande.encre .bascule-galerie:hover{background:rgba(246,240,230,.24)}
+.aide h3{font-size:24px; margin:16px 0 10px}
+.aide p{font-size:18px}
+.aide a{white-space:nowrap}
 
-/* Chiffres */
-.chiffres{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; max-width:860px; margin:64px auto 0}
-@media(max-width:620px){ .chiffres{grid-template-columns:1fr; gap:38px} }
-.chiffre .n{font-family:var(--serif); font-weight:600; font-size:clamp(46px,7vw,76px); color:var(--corail); line-height:1; letter-spacing:-.04em}
-.chiffre p{font-size:15.5px; color:var(--faible); margin-top:10px}
-.bande.encre .chiffre p{color:var(--clair-faible)}
-
-/* Encart */
-.encart{
-  border:1px solid var(--trait); border-radius:20px;
-  padding:26px 26px; margin-top:56px; text-align:left; background:var(--blanc);
+/* ── Guides ────────────────────────────────────────────────────────────── */
+.liste-guides{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:12px 22px; margin:56px 0 0; padding:0; list-style:none; text-align:left;
 }
-.bande.encre .encart{background:transparent; border-color:rgba(246,240,230,.22)}
-.encart h3{font-size:17px; font-family:var(--sans); font-weight:600; margin-bottom:8px}
-.encart p{font-size:15.5px; color:var(--faible)}
-.bande.encre .encart h3{color:var(--clair)}
+.liste-guides li{display:flex; align-items:center; gap:14px; background:var(--fond); border-radius:16px; padding:12px 14px; font-weight:700; font-size:17px}
 
-.portrait{width:136px; height:136px; border-radius:50%; object-fit:cover; margin:0 auto 32px}
+/* ── Bande encre, données ──────────────────────────────────────────────── */
+.encre{background:var(--bande-encre); color:var(--bande-texte)}
+.encre h2{color:var(--bande-texte); max-width:none}
+.encre .sous{color:var(--bande-texte2); max-width:52ch}
+.encre .fin{color:var(--bande-texte2)}
+.encre :focus-visible{outline-color:var(--menthe)}
+.chiffres{display:grid; grid-template-columns:repeat(3,1fr); margin-top:64px; border-top:1px solid rgba(244,245,247,.14)}
+.chiffre{padding:30px 28px 0; border-left:1px solid rgba(244,245,247,.14)}
+.chiffre:first-child{border-left:0; padding-left:0}
+.chiffre .n{font-size:88px; font-weight:800; letter-spacing:-.04em; line-height:1; color:var(--menthe)}
+.chiffre p{color:var(--bande-texte2); margin-top:10px; font-size:17px; max-width:24ch}
 
-footer{background:var(--fond-encre); color:var(--clair-faible); padding:54px 22px 62px; text-align:center; font-size:14px}
-footer nav{margin-top:16px; font-size:13.5px}
-footer a{color:var(--clair-faible); text-decoration:none}
-footer a:hover{color:var(--corail)}
-footer .sep{margin:0 9px; opacity:.5}
-
-/* Apparitions au défilement */
-.js .anim{opacity:0; transform:translateY(28px)}
-.js .anim.vu{opacity:1; transform:none; transition:opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1)}
-.js .anim.d1.vu{transition-delay:.1s}
-.js .anim.d2.vu{transition-delay:.2s}
-.js .anim.d3.vu{transition-delay:.3s}
-.js .zoom{opacity:0; transform:scale(.94) translateY(24px)}
-.js .zoom.vu{opacity:1; transform:none; transition:opacity 1.1s cubic-bezier(.22,.61,.36,1), transform 1.1s cubic-bezier(.22,.61,.36,1)}
-@keyframes flotte{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.flotte{animation:flotte 4.4s ease-in-out infinite}
-
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .js .anim,.js .zoom{opacity:1!important; transform:none!important; transition:none!important}
-  .flotte{animation:none}
-  *{transition:none!important}
-}
-
-/* Colonnes de texte */
-.colonnes{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:0;
-  max-width:1000px; margin:64px auto 0; text-align:left;
-}
-.colonnes > div{padding:0 30px; border-left:1px solid var(--trait)}
-.colonnes > div:first-child{padding-left:0; border-left:none}
-.colonnes > div:last-child{padding-right:0}
-.colonnes h3{margin-bottom:12px}
-.colonnes p{font-size:15.5px; color:var(--faible)}
-@media(max-width:800px){
-  .colonnes{grid-template-columns:1fr; gap:34px}
-  .colonnes > div{padding:0; border-left:none; border-top:1px solid var(--trait); padding-top:26px}
-  .colonnes > div:first-child{border-top:none; padding-top:0}
-}
-
-/* Sommaire des guides */
-.sommaire{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:0 44px;
-  max-width:1000px; margin:56px auto 0; text-align:left;
-}
-@media(max-width:860px){ .sommaire{grid-template-columns:repeat(2,1fr); gap:0 30px} }
-@media(max-width:540px){ .sommaire{grid-template-columns:1fr} }
-.sommaire div{
-  display:flex; gap:14px; align-items:baseline;
-  padding:15px 0; border-bottom:1px solid var(--trait);
-  font-size:16px; color:var(--encre);
-}
-.sommaire i{
-  font-style:normal; font-family:var(--serif); font-weight:600;
-  color:var(--accent); font-size:13.5px; min-width:20px;
-}
-
-/* Questions fréquentes */
-.faq{max-width:740px; margin:56px auto 0; text-align:left}
-.faq details{border-bottom:1px solid var(--trait)}
+/* ── Questions ─────────────────────────────────────────────────────────── */
+.faq{max-width:780px; margin:56px auto 0; display:grid; gap:12px; text-align:left}
+.faq details{background:var(--surface); border:1px solid var(--bord); border-radius:18px}
 .faq summary{
-  list-style:none; cursor:pointer; padding:22px 30px 22px 0; position:relative;
-  font-family:var(--serif); font-weight:600; font-size:19px; color:var(--encre);
-  letter-spacing:-.015em;
+  list-style:none; display:flex; justify-content:space-between; align-items:center; gap:16px;
+  font-weight:800; font-size:19px; padding:20px 24px; cursor:pointer; border-radius:18px;
 }
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{
-  content:""; position:absolute; right:4px; top:31px;
-  width:9px; height:9px; border-right:2px solid var(--corail); border-bottom:2px solid var(--corail);
-  transform:rotate(45deg); transition:transform .25s ease;
-}
-.faq details[open] summary::after{transform:rotate(-135deg); top:35px}
-.faq summary:hover{color:var(--accent)}
-.faq .rep{padding:0 30px 24px 0; font-size:16.5px; color:var(--texte); line-height:1.65}
-.faq .rep p+p{margin-top:14px}
+.faq summary .ic{font-size:26px; color:var(--accent); transition:transform .2s ease}
+.faq details[open] summary .ic{transform:rotate(180deg)}
+.faq .rep{padding:0 24px 20px; color:var(--texte2)}
+.faq .rep p+p{margin-top:12px}
 
-/* Fiche technique */
-.fiche{max-width:760px; margin:56px auto 0; text-align:left}
-.fiche div{
-  display:grid; grid-template-columns:200px 1fr; gap:20px;
-  padding:17px 0; border-bottom:1px solid var(--trait); font-size:16px;
+/* ── Appel aux structures ──────────────────────────────────────────────── */
+.appel .sous{max-width:58ch; font-size:19px}
+.adresse{margin-top:22px; font-size:16px; color:var(--texte2); display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap}
+.copier{
+  display:none; align-items:center; gap:6px; min-height:44px; padding:8px 16px; border-radius:999px; border:0;
+  background:var(--eleve); color:var(--texte); font-family:inherit; font-weight:700; font-size:15px; cursor:pointer;
 }
-.fiche dt{color:var(--faible); margin:0}
-.fiche dd{color:var(--encre); margin:0}
-@media(max-width:560px){
-  .fiche div{grid-template-columns:1fr; gap:4px}
-  .fiche dt{font-size:14px}
-}
+.js .copier{display:inline-flex}
+.copier .ic{font-size:18px}
+.copie-retour{font-size:15px; color:var(--texte2)}
 
-/* En-tete enrichi */
-.barre-in{max-width:1140px}
-.barre nav{align-items:center}
-.barre .contact{
-  background:var(--corail); color:var(--sur-corail);
-  padding:7px 15px; border-radius:999px; font-weight:600;
-}
-.barre .contact:hover{color:var(--sur-corail); opacity:.9}
+/* ── Pied de page ──────────────────────────────────────────────────────── */
+footer{padding:56px 0; border-top:1px solid var(--bord); color:var(--texte2); font-size:15px}
+footer .wrap{display:flex; justify-content:space-between; align-items:center; gap:18px}
+footer nav{display:flex; gap:22px; flex-wrap:wrap}
+footer a{color:var(--texte); font-weight:600; text-decoration:none}
+footer a:hover{text-decoration:underline; text-decoration-color:var(--accent)}
 
+/* ── Pages intérieures ─────────────────────────────────────────────────── */
+.entete-page{padding:80px 0 40px}
+.entete-page h1{font-size:clamp(40px, 11.5vw, 84px); letter-spacing:-.035em}
+.entete-page .sous{font-size:20px}
+.portrait{width:136px; height:136px; border-radius:50%; display:block; margin-bottom:28px; object-fit:cover}
+.suite{padding-top:40px}
+.texte{max-width:760px}
+.corps{font-size:18px; margin-top:18px}
+.corps:first-child{margin-top:0}
+.legal h2{font-size:30px; max-width:none; margin-top:48px}
+.legal h2:first-child{margin-top:0}
+.legal h2+.corps{margin-top:14px}
+.texte .actions{margin-top:40px}
+.encart{background:var(--surface); border:1px solid var(--bord); border-radius:24px; padding:32px; margin-top:40px}
+.encart h2{font-size:28px; max-width:none; margin-bottom:10px}
 
-/* Heros en deux colonnes */
-.hero{padding-top:clamp(56px,8vw,96px); padding-bottom:clamp(48px,6vw,72px)}
-@media(min-width:900px){
-  .hero{min-height:calc(100svh - 52px); display:flex; align-items:center; justify-content:center}
-  .hero-grille{width:100%}
-}
-.hero-grille{
-  display:grid; grid-template-columns:1.02fr .98fr;
-  gap:clamp(30px,5vw,68px); align-items:center;
-  max-width:1140px; margin:0 auto; text-align:left;
-}
-.hero-grille h1{font-size:clamp(46px,7.2vw,88px)}
-.hero-grille .sous{margin-top:18px}
-.hero .tel{width:min(268px,74vw); margin:0 auto}
-.hero-marque{width:64px; height:52px; margin-bottom:20px}
-.points{list-style:none; padding:0; margin:26px 0 0; display:grid; gap:11px}
-.points li{position:relative; padding-left:24px; font-size:16px; color:var(--texte)}
-.points li::before{
-  content:""; position:absolute; left:0; top:9px;
-  width:9px; height:9px; border-radius:50%; background:var(--corail);
-}
-.hero .actions{margin-top:32px; justify-content:flex-start}
-@media(max-width:900px){
-  .hero-grille{grid-template-columns:1fr; text-align:center; gap:38px}
-  .hero-marque{margin-left:auto; margin-right:auto}
-  .hero .actions{justify-content:center}
-  .points{justify-items:stretch; max-width:340px; margin-left:auto; margin-right:auto}
-  .points li{text-align:left}
-}
-
-.barre nav a[aria-current="page"]{color:var(--accent)}
-
-/* Accessibilite */
-.evite{
-  position:absolute; left:-9999px; top:0; z-index:100;
-  background:var(--fond-encre); color:var(--clair); font-weight:600;
-  padding:12px 20px; border-radius:0 0 12px 0; text-decoration:none;
-}
-.evite:focus{left:0}
-.piste:focus-visible{outline:2px solid var(--accent); outline-offset:6px; border-radius:14px}
-.barre nav a{padding:14px 2px}
-footer nav a{display:inline-block; padding:8px 4px}
-footer{line-height:1.7}
-.encart h2{font-size:17px; font-family:var(--sans); font-weight:600; margin:0 0 8px; letter-spacing:0}
-
-/* Raccord sous un en-tete de page */
-.bande.suite{padding-top:clamp(24px,3vw,40px)}
-.bande.courte.entete-page{padding-bottom:clamp(14px,2vw,24px)}
-/* Titres des pages secondaires, autrefois en style en ligne : la politique de
-   securite n'autorise plus aucun style dans le HTML. */
-.entete-page h1{font-size:clamp(36px,6.5vw,68px)}
-.entete-page h1.grand{font-size:clamp(40px,7.5vw,84px)}
-
-/* Page confidentialite */
-.legal h2{font-size:clamp(22px,3.4vw,29px); line-height:1.16; margin-top:46px}
-.legal h2:first-of-type{margin-top:0}
-.legal .corps{margin-top:18px}
-
-/* Deux actions dans le heros, alignees sur une ligne des que la place le permet */
-.hero .actions{gap:10px}
-.hero .actions .bouton{padding:12px 19px; font-size:15px; white-space:nowrap}
-@media(min-width:1120px){ .hero .actions{flex-wrap:nowrap} }
-
-/* Sous 400px, les boutons passent avant les puces pour rester visibles sans defiler */
-@media(max-width:640px){
-  .hero .actions .bouton{white-space:normal}
-}
-@media(max-width:400px){
-  .hero-grille > div:first-child{display:flex; flex-direction:column}
-  .hero-grille > div:first-child > .hero-marque{order:1}
-  .hero-grille > div:first-child > .statut{order:2}
-  .hero-grille > div:first-child > h1{order:3}
-  .hero-grille > div:first-child > .sous{order:4}
-  .hero-grille > div:first-child > .actions{order:5; margin-top:22px}
-  .hero-grille > div:first-child > .lien-suite{order:6}
-  .hero-grille > div:first-child > .points{order:7; margin-top:26px}
-  .hero-grille > div:first-child > .fin{order:8}
-}
-
-/* Lien texte secondaire, sous la rangee de boutons */
-.lien-suite{margin-top:16px; font-size:15px}
-.lien-suite a{color:var(--accent); font-weight:500; text-decoration:underline; text-underline-offset:3px}
-.lien-suite a:hover{text-decoration-thickness:2px}
-@media(max-width:900px){ .lien-suite{text-align:center} }
-
-.encart p+p{margin-top:12px}
-
-/* Menu mobile complet */
-.burger{
-  display:none; width:44px; height:44px; border:none; background:none;
-  color:var(--encre); cursor:pointer; align-items:center; justify-content:center;
-  border-radius:10px;
-}
-.burger svg{width:22px; height:22px}
-.burger:hover{background:var(--voile)}
-@media(max-width:860px){
-  /* Ordre du DOM = ordre visuel = ordre clavier : logo, bascule de theme,
-     burger, puis le menu. La bascule porte margin-left:auto (regle generale)
-     et pousse le burger a droite avec elle ; aucune regle order n'est
-     necessaire. Le menu replie est retire du flux, il n'a plus rien a montrer
-     puisque la bascule vit hors de lui. */
-  .js .burger{display:inline-flex}
-  .barre-in{position:relative; justify-content:flex-start; gap:12px}
-  .js .barre nav{display:none}
-  .js .barre.ouvert nav{
-    display:flex; position:absolute; top:52px; right:0; left:0;
-    flex-direction:column; align-items:stretch; gap:0;
-    background:var(--ivoire); border-bottom:1px solid var(--trait);
-    padding:8px 22px 18px;
-  }
-  .barre nav a{padding:14px 4px; font-size:16px; border-bottom:1px solid var(--trait)}
-  .barre nav a:last-child{border-bottom:none}
-  .barre .contact{
-    margin-top:12px; text-align:center; border-radius:999px; padding:13px 20px;
-  }
-  /* Sans JavaScript: pas de burger, les liens restent visibles sous la barre */
-  html:not(.js) .barre{position:static}
-  html:not(.js) .barre-in{
-    height:auto; min-height:52px; flex-wrap:wrap;
-    padding-top:6px; padding-bottom:10px;
-  }
-  html:not(.js) .barre nav{
-    flex-basis:100%; flex-direction:column; align-items:stretch; gap:0;
-    border-top:1px solid var(--trait); margin-top:6px;
-  }
-  html:not(.js) .barre nav a{padding:11px 4px; font-size:15px}
-  html:not(.js) .barre .contact{margin-top:10px; padding:11px 20px}
-}
-.statut{
-  font-size:13px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
-  color:var(--accent); margin:0 0 14px;
-}
-
-/* Liens sur fond encre: l'accent clair est requis pour le contraste (6,38 mesure) */
-.bande.encre a{color:#FF7551}
-footer a{color:var(--clair-faible)}
-
-/* Sommaire local, page L'application. Le bloc .sommaire-colle est un enfant
-   direct de main, hors de l'en-tete, pour pouvoir coller sous la barre : un
-   element collant ne depasse jamais son parent. Au-dessus de 861px seulement ;
-   sur mobile il reste a sa place, un second bandeau collant mangerait pres de
-   cent pixels d'un ecran de 568. */
-.sommaire-colle{
-  background:var(--ivoire);
-  padding:calc(26px - clamp(14px,2vw,24px)) 22px clamp(14px,2vw,24px);
-}
+/* Page L'application: sommaire en capsules, collé sous la barre en bureau.
+   Enfant direct de main, pour pouvoir coller: un élément collant ne dépasse
+   jamais son parent. Sur mobile il reste à sa place. */
+.sommaire-colle{background:var(--fond); padding:0 0 28px}
 @media(min-width:861px){
-  .sommaire-colle{position:sticky; top:52px; z-index:40}
-  /* Les ancres des sections tiennent compte du sommaire colle */
-  .sommaire-colle ~ section{scroll-margin-top:76px}
+  .sommaire-colle{position:sticky; top:68px; z-index:40; padding:14px 0; border-bottom:1px solid var(--bord)}
+  .sommaire-colle ~ section{scroll-margin-top:150px}
 }
-.sommaire-page{
-  display:flex; gap:8px; max-width:860px; margin:0 auto;
-  overflow-x:auto; overscroll-behavior-x:contain;
-  padding-bottom:4px;
-}
+.sommaire-page{display:flex; flex-wrap:wrap; gap:10px}
 .sommaire-page a{
-  display:inline-flex; align-items:center; flex:0 0 auto;
-  min-height:44px; padding:0 15px;
-  border:1px solid var(--trait); border-radius:999px;
-  color:var(--texte); text-decoration:none;
-  font-size:14px; font-weight:500; white-space:nowrap;
+  display:inline-flex; align-items:center; min-height:44px; padding:0 16px; border-radius:999px;
+  background:var(--surface); border:1px solid var(--bord); color:var(--texte); text-decoration:none; font-weight:700; font-size:15px;
 }
-.sommaire-page a:hover{border-color:var(--corail); color:var(--accent)}
-/* Le focus d'une entree du sommaire va sur le titre, indicateur compact */
+.sommaire-page a:hover{background:var(--menthe); color:var(--encre); border-color:transparent}
 h2[tabindex="-1"]:focus{outline:none}
 h2[tabindex="-1"]:focus-visible{outline:2px solid var(--accent); outline-offset:6px; border-radius:8px}
 
-/* Copie de l'adresse : bouton visible avec script seulement */
-.copie{display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:center; align-items:center; margin-top:14px}
-.copier{
-  display:none; align-items:center; gap:8px;
-  min-height:44px; padding:0 15px; border-radius:999px;
-  border:none; background:var(--voile); color:var(--encre);
-  font-family:inherit; font-size:14px; font-weight:500; cursor:pointer;
-  transition:background .2s ease;
-}
-.js .copier{display:inline-flex}
-.copier:hover{background:var(--voile-fort)}
-.copier svg{width:16px; height:16px; flex:none}
-.copie-retour{font-size:14.5px; color:var(--faible)}
+.rubrique{display:grid; grid-template-columns:380px minmax(0,1fr); gap:64px; align-items:start}
+.rubrique h2{font-size:clamp(34px, 3.8vw, 46px); margin-top:18px}
+.rubrique .sous{font-size:20px}
+.rubrique .segment{margin-top:32px}
+.rubrique .vue{width:calc((100% - 44px) / 3)}
+.fiche{margin:0; display:grid; background:var(--fond); border:1px solid var(--bord); border-radius:24px; padding:8px 28px}
+.fiche div{display:grid; grid-template-columns:160px 1fr; gap:20px; padding:16px 0; border-top:1px solid var(--bord)}
+.fiche div:first-child{border-top:0}
+.fiche dt{font-weight:800}
+.fiche dd{color:var(--texte2)}
 
-/* ── Theme sombre ───────────────────────────────────────────────────────────
-   Valeurs relevees telles quelles dans TremplinShared/Color+Theme.swift du
-   depot iOS. Aucune couleur inventee, aucun violet, aucun magenta, aucun fond
-   bleute : le sombre de l'application est brun-encre et chaud.
-
-     tremplinBackground      1A1512      tremplinText           F4ECE0
-     tremplinSurface         271F19      tremplinTextSecondary  B3A796
-     tremplinSurfaceElevated 332A22      tremplinAccent         FF7551
-     tremplinOnAccent        1E1B26      tremplinAccentText     FF7551
-
-   Contrastes calcules sur les paires reellement employees, toutes au-dessus de
-   4,5 pour le texte : 15,45 texte sur fond, 13,82 sur surface, 11,99 sur bande
-   elevee, 7,66 attenue sur fond, 6,82 corail sur fond, 6,38 encre sur corail.
-   Aucune couleur de texte n'a eu besoin d'etre corrigee.
-
-   Le defaut reste clair : rien ici ne s'applique sans data-theme="sombre" sur
-   la racine, pose par le choix explicite du visiteur. */
-:root[data-theme="sombre"]{
-  color-scheme:dark;
-  --ivoire:#1A1512;
-  --blanc:#271F19;
-  --fond-encre:#332A22;
-  --encre:#F4ECE0;
-  --texte:#F4ECE0;
-  --faible:#B3A796;
-  --corail:#FF7551;
-  --accent:#FF7551;
-  --sur-corail:#1E1B26;
-  --trait:rgba(244,236,224,.14);
-  --clair:#F4ECE0;
-  --clair-faible:rgba(244,236,224,.7);
-  --voile:rgba(244,236,224,.09);
-  --voile-fort:rgba(244,236,224,.18);
-  --ombre:rgba(0,0,0,.5);
-  --fond-barre:rgba(26,21,18,.82);
-}
-/* Sur bande elevee le corail garde son role de lien : la valeur est deja celle
-   du theme, la regle du theme clair ne doit donc pas la figer. */
-:root[data-theme="sombre"] .bande.encre a{color:var(--accent)}
-:root[data-theme="sombre"] footer a{color:var(--clair-faible)}
-/* Le chassis de telephone reste plus sombre que la page, sinon il disparait.
-   #1A1512 etait aussi la couleur de la page : contraste mesure 1,00:1 avec la
-   bande du heros et 1,12:1 avec la bande blanche, donc aucun bord. Le chassis
-   passe sous la page, et un lisere clair interne (box-shadow inset, il ne
-   deborde pas du chassis) dessine le contour sur n'importe quel fond.
-   border-color n'avait aucun effet : .tel n'a pas de bordure. */
-:root[data-theme="sombre"] .tel{
-  background:#0E0B09;
-  box-shadow:inset 0 0 0 1px rgba(244,236,224,.4), 0 18px 44px var(--ombre);
+/* ── Apparition au défilement ──────────────────────────────────────────── */
+.js .anim{opacity:0; transform:translateY(24px)}
+.js .anim.vu{opacity:1; transform:none; transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1)}
+.js .anim.d1.vu{transition-delay:.1s}
+.js .anim.d2.vu{transition-delay:.2s}
+.js .anim.d3.vu{transition-delay:.3s}
+.js .zoom{opacity:0; transform:scale(.96) translateY(20px)}
+.js .zoom.vu{opacity:1; transform:none; transition:opacity 1s cubic-bezier(.22,.61,.36,1), transform 1s cubic-bezier(.22,.61,.36,1)}
+.js .zoom.d1.vu{transition-delay:.1s}
+.js .zoom.d2.vu{transition-delay:.2s}
+.js .zoom.d3.vu{transition-delay:.3s}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .anim,.js .zoom{opacity:1!important; transform:none!important; transition:none!important}
+  .faq summary .ic{transition:none}
 }
 
-/* Interrupteur de theme. Place dans le DOM entre le logo et le burger, hors
-   du menu : margin-left:auto le pousse a droite, colle au menu sur ordinateur
-   et au burger sur mobile, sans reordonner visuellement. */
-.bascule{
-  display:none; width:44px; height:44px; border:none; background:none;
-  color:var(--encre); cursor:pointer; align-items:center; justify-content:center;
-  border-radius:10px; margin-left:auto;
+/* ── Mobile ────────────────────────────────────────────────────────────── */
+@media(max-width:1020px){
+  .barre nav{gap:18px}
+  .rubrique{grid-template-columns:300px minmax(0,1fr); gap:44px}
 }
-.js .bascule{display:inline-flex}
-.bascule:hover{background:var(--voile)}
-.bascule svg{width:21px; height:21px}
-.bascule .lune{display:none}
-:root[data-theme="sombre"] .bascule .soleil{display:none}
-:root[data-theme="sombre"] .bascule .lune{display:block}
-
-/* Transition douce entre les deux themes, sauf si le visiteur ne veut pas
-   d'animation. Elle ne porte que sur les couleurs, jamais sur la mise en page. */
-@media (prefers-reduced-motion: no-preference){
-  body, .bande, .barre, footer, .encart, .tel, .vue figcaption{
-    transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+@media(max-width:860px){
+  body{font-size:17px}
+  .wrap,.barre-in{padding:0 20px}
+  .barre-in{position:relative; gap:10px}
+  .contact-bureau{display:none}
+  .bascule{margin-left:auto}
+  .js .burger{display:grid}
+  .js .barre nav{display:none}
+  .js .barre.ouvert nav{
+    display:flex; position:absolute; top:68px; left:0; right:0; flex-direction:column; align-items:stretch; gap:0;
+    background:var(--fond); border-bottom:1px solid var(--bord); padding:8px 20px 20px; margin:0;
   }
+  .barre nav a{padding:14px 4px; font-size:17px; border-bottom:1px solid var(--bord)}
+  .barre nav .contact{display:flex; justify-content:center; margin-top:14px; border-bottom:0; padding:13px 20px}
+  /* Sans JavaScript: pas de burger, les liens restent visibles sous la barre */
+  html:not(.js) .barre{position:static}
+  html:not(.js) .barre-in{height:auto; min-height:68px; flex-wrap:wrap; padding-top:12px; padding-bottom:12px}
+  html:not(.js) .barre nav{flex-basis:100%; flex-direction:column; align-items:stretch; gap:0; margin-left:0}
+
+  .bande{padding:72px 0}
+  .sous{font-size:19px}
+  .hero{padding:40px 0 64px}
+  .hero-grille{grid-template-columns:minmax(0,1fr)}
+  .scene{min-height:0; margin-top:24px}
+  .tel{width:240px}
+  .actions{flex-direction:column; align-items:flex-start}
+  .centre .actions{align-items:center}
+  .galerie.cinq .piste{margin:48px -20px 0 0; padding-right:20px}
+  .galerie.cinq .vue{flex:0 0 72%}
+  .deux,.rubrique{grid-template-columns:minmax(0,1fr); gap:36px}
+  .rubrique .vue{width:72%}
+  .rubrique .ecrans{margin-right:-20px}
+  .rubrique .piste{padding-right:20px; margin-right:0}
+  .liste-guides{grid-template-columns:1fr}
+  .chiffres{grid-template-columns:1fr}
+  .chiffre{border-left:0; padding:24px 0; border-bottom:1px solid rgba(244,245,247,.14)}
+  .chiffre:first-child{padding-left:0}
+  .chiffre:last-child{border-bottom:0}
+  .chiffre .n{font-size:64px}
+  .paire .tel{width:46%}
+  .paire .tel.solo{width:240px}
+  .aide{padding:24px}
+  footer .wrap{flex-direction:column; align-items:flex-start}
+  .fiche{padding:4px 20px}
+  .fiche div{grid-template-columns:1fr; gap:4px}
+  .entete-page{padding:56px 0 32px}
+  .fleches{display:none}
 }
